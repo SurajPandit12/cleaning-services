@@ -1,6 +1,7 @@
 "use client";
 
 import { Mail, Menu, Phone, X, Sparkles, Star } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -38,14 +39,15 @@ export default function Navbar() {
             : "bg-white/90 backdrop-blur-sm"
         }`}
       >
-        {/* Premium Top Bar */}
         <div
-          className={`bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white py-2 px-4 text-center text-sm font-medium transition-all duration-500 ${
-            scrolled ? "h-0 overflow-hidden py-0" : "h-auto"
-          }`}
+          className={`transition-all duration-500 overflow-hidden ${
+            scrolled
+              ? "max-h-0 opacity-0 py-0 pointer-events-none"
+              : "max-h-20 opacity-100 py-2"
+          } bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white px-4 text-center text-sm font-medium`}
         >
           <div className="flex items-center justify-center space-x-6">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 font-dmsans">
               <Phone className="w-3 h-3" />
               <span>Call Now: (555) 123-4567</span>
             </div>
@@ -67,9 +69,11 @@ export default function Navbar() {
                 <div className="absolute -inset-3 bg-gradient-to-r from-blue-600 via-purple-600 to-teal-500 rounded-2xl blur-lg opacity-0 group-hover:opacity-20 transition-all duration-700"></div>
                 <div className="relative w-14 h-14 rounded-xl overflow-hidden border-2 border-transparent bg-gradient-to-br from-blue-500 via-purple-500 to-teal-500 p-0.5 group-hover:scale-105 transition-all duration-500">
                   <div className="w-full h-full bg-white rounded-lg flex items-center justify-center">
-                    <span className="text-2xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                      CL
-                    </span>
+                    <Image
+                    width={50}
+                    height={50}
+                    alt="logo"
+                    src="/images/logo.jpg" />
                   </div>
                 </div>
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
@@ -87,16 +91,16 @@ export default function Navbar() {
             </Link>
 
             {/* Professional Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-1">
+            <div className="hidden lg:flex items-center font-dmsans space-x-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="relative px-5 py-3 text-gray-700 hover:text-gray-900 font-medium text-sm transition-all duration-300 group"
+                  className="relative px-5 py-3 text-gray-700 hover:text-gray-900 font-medium text-sm transition-all group"
                 >
                   <span className="relative z-10">
                     {link.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-500 group-hover:w-full"></span>
                   </span>
                   <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0 group-hover:from-blue-500/40 group-hover:to-blue-500/40 transition-all duration-500"></span>
                 </Link>
@@ -104,12 +108,12 @@ export default function Navbar() {
             </div>
 
             {/* Professional CTA & Mobile Menu */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 font-poppins">
               <Link
                 href="#contact"
-                className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] relative overflow-hidden group"
+                className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:shadow-md transition-all duration-300 hover:scale-[1.03] relative overflow-hidden group"
               >
-                <span className="relative z-10">Get Free Quote</span>
+                <span className="relative z-10">Contact Us</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </Link>

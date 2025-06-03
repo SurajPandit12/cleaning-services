@@ -17,6 +17,13 @@ module.exports = {
         "2xl": "1525px",
       },
     },
+    fontFamily: {
+      poppins: ["Poppins", "sans-serif"],
+      montserrat: ["Montserrat", "sans-serif"],
+      dmsans: ["DM Sans", "sans-serif"],
+      opensans: ["Open Sans", "sans-serif"],
+      montserratAlt: ['"Montserrat Alternates"', "sans-serif"],
+    },
     extend: {},
   },
   plugins: [],
