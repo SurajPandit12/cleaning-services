@@ -30,7 +30,7 @@ const services = [
   },
 ];
 
-const CleaningServicesLanding = () => {
+const AboutUs = () => {
   const serviceRefs = useRef([]);
 
   useEffect(() => {
@@ -101,4 +101,4 @@ const CleaningServicesLanding = () => {
   );
 };
 
-export default CleaningServicesLanding;
+export default AboutUs;

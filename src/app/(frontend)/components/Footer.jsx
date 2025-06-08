@@ -183,9 +183,9 @@ export default function Footer() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600 leading-relaxed">
-                      123 Main Street
+                      8 prince street Clayton 3168,
                       <br />
-                      New York, NY 10001
+                      Melbourne, Australia
                     </p>
                   </div>
                 </div>
@@ -196,10 +196,10 @@ export default function Footer() {
                   </div>
                   <div>
                     <Link
-                      href="tel:+15551234567"
+                      href="tel:+61428757972"
                       className="text-sm text-gray-600 hover:text-green-600 transition-colors duration-300"
                     >
-                      (555) 123-4567
+                      +61428757972
                     </Link>
                   </div>
                 </div>
@@ -210,14 +210,13 @@ export default function Footer() {
                   </div>
                   <div>
                     <Link
-                      href="mailto:hello@cleanliving.com"
+                      href="mailto:support@besteverhospitality.com.au"
                       className="text-sm text-gray-600 hover:text-teal-600 transition-colors duration-300"
                     >
-                      hello@cleanliving.com
+                      support@besteverhospitality.com.au
                     </Link>
                   </div>
                 </div>
-
                 <div className="flex items-start space-x-3 group">
                   <div className="p-2 bg-purple-100 rounded-lg group-hover:bg-purple-200 transition-colors duration-300">
                     <Clock className="w-4 h-4 text-purple-600" />
@@ -231,8 +230,6 @@ export default function Footer() {
                   </div>
                 </div>
               </div>
-
-              {/* Social Links */}
               <div className="pt-2">
                 <h5 className="text-sm font-semibold text-gray-700 mb-3">
                   Follow Us
@@ -251,8 +248,6 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
-          {/* Newsletter Section */}
           <div className="mt-16 pt-8 border-t border-gray-200">
             <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-teal-600 rounded-2xl p-8 text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-teal-600 via-blue-700 to-blue-600 opacity-0 hover:opacity-100 transition-opacity duration-700"></div>
@@ -276,7 +271,6 @@ export default function Footer() {
                   </button>
                 </div>
               </div>
-              {/* Decorative elements */}
               <div className="absolute top-4 right-4 opacity-20">
                 <Sparkles className="w-8 h-8" />
               </div>
@@ -285,8 +279,6 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
-          {/* Bottom Section */}
           <div className="mt-12 pt-8 border-t border-gray-200">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-gray-600">
@@ -315,7 +307,6 @@ export default function Footer() {
                   </Link>
                 </div>
               </div>
-
               <div className="text-sm text-gray-600 flex items-center space-x-2">
                 <span>Made with</span>
                 <Heart className="w-4 h-4 text-red-500 animate-pulse" />
@@ -325,8 +316,6 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-
-      {/* Back to Top Button */}
       {showBackToTop && (
         <button
           onClick={scrollToTop}

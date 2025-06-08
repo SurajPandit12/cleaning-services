@@ -5,7 +5,6 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { MapPin, Calendar, Phone, ChevronDown } from "lucide-react";
 
-// BookingForm Component
 const BookingForm = () => {
   const [formData, setFormData] = useState({
     location: "",
@@ -15,14 +14,16 @@ const BookingForm = () => {
   });
 
   const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const serviceOptions = [
-    "Residential Cleaning",
-    "Office Cleaning",
-    "Deep Cleaning",
-    "Move-in/Move-out",
-    "Post-Construction",
-    "Carpet Cleaning",
+    "Regular Apartment Cleaning",
+    "Office & Commercial Cleaning",
+    "Airbnb / Short Stay Cleaning",
+    "End of Lease Cleaning",
+    "Rubbish Removal & Extras",
+    "General Inquiry",
   ];
 
   const handleInputChange = (field, value) => {
@@ -30,18 +31,106 @@ const BookingForm = () => {
       ...prev,
       [field]: value,
     }));
+
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors((prev) => ({
+        ...prev,
+        [field]: "",
+      }));
+    }
   };
 
-  const handleSubmit = () => {
-    console.log("Form submitted:", formData);
-    // Handle form submission logic here
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.location.trim()) {
+      newErrors.location = "Location is required";
+    }
+
+    if (!formData.serviceType) {
+      newErrors.serviceType = "Please select a service type";
+    }
+
+    if (!formData.date) {
+      newErrors.date = "Date is required";
+    } else {
+      const selectedDate = new Date(formData.date);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      if (selectedDate < today) {
+        newErrors.date = "Please select a future date";
+      }
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^[\+]?[\d\s\-\(\)]{10,}$/.test(formData.phone.trim())) {
+      newErrors.phone = "Please enter a valid phone number";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const clearForm = () => {
+    setFormData({
+      location: "",
+      serviceType: "",
+      date: "",
+      phone: "",
+    });
+    setErrors({});
+    setDropdownOpen(null);
+  };
+
+  const handleSubmit = async () => {
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const payload = {
+      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+      location: formData.location,
+      serviceType: formData.serviceType,
+      date: formData.date,
+      phone: formData.phone,
+    };
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        alert("Form submitted successfully!");
+        clearForm();
+      } else {
+        alert("Submission failed. Please try again.");
+        console.error(result);
+      }
+    } catch (error) {
+      alert("Error submitting the form.");
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-50 w-full max-w-5xl px-4">
+    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-40 w-full max-w-7xl px-4">
       <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-visible">
         <div className="p-6 lg:p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 items-end">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-6 items-end">
             {/* Location Input */}
             <div className="lg:col-span-1">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -51,18 +140,23 @@ const BookingForm = () => {
                 <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
                   type="text"
-                  placeholder="Where are you from?"
+                  placeholder="Your Location?"
                   value={formData.location}
                   onChange={(e) =>
                     handleInputChange("location", e.target.value)
                   }
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700 placeholder-gray-400"
+                  className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700 placeholder-gray-400 ${
+                    errors.location ? "border-red-500" : "border-gray-200"
+                  }`}
                 />
               </div>
+              {errors.location && (
+                <p className="text-red-500 text-xs mt-1">{errors.location}</p>
+              )}
             </div>
 
             {/* Service Type Dropdown */}
-            <div className="lg:col-span-1 relative">
+            <div className="lg:col-span-2 relative">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Service Type
               </label>
@@ -74,7 +168,9 @@ const BookingForm = () => {
                       dropdownOpen === "service" ? null : "service"
                     )
                   }
-                  className="w-full pl-4 pr-10 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-left bg-white flex items-center justify-between"
+                  className={`w-full pl-4 pr-10 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-left bg-white flex items-center justify-between ${
+                    errors.serviceType ? "border-red-500" : "border-gray-200"
+                  }`}
                 >
                   <span
                     className={
@@ -108,6 +204,11 @@ const BookingForm = () => {
                   </div>
                 )}
               </div>
+              {errors.serviceType && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.serviceType}
+                </p>
+              )}
             </div>
 
             {/* Date Input */}
@@ -121,12 +222,17 @@ const BookingForm = () => {
                   type="date"
                   value={formData.date}
                   onChange={(e) => handleInputChange("date", e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700"
+                  className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700 ${
+                    errors.date ? "border-red-500" : "border-gray-200"
+                  }`}
                 />
               </div>
+              {errors.date && (
+                <p className="text-red-500 text-xs mt-1">{errors.date}</p>
+              )}
             </div>
 
-            {/* Phone Number Input */}
+            {/* Phone Input */}
             <div className="lg:col-span-1">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Phone Number
@@ -135,12 +241,17 @@ const BookingForm = () => {
                 <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
                   type="tel"
-                  placeholder="Your phone number"
+                  placeholder="Phone Number"
                   value={formData.phone}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700 placeholder-gray-400"
+                  className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700 placeholder-gray-400 ${
+                    errors.phone ? "border-red-500" : "border-gray-200"
+                  }`}
                 />
               </div>
+              {errors.phone && (
+                <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+              )}
             </div>
 
             {/* Submit Button */}
@@ -148,21 +259,31 @@ const BookingForm = () => {
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 text-lg"
+                disabled={isSubmitting}
+                className={`w-full font-bold py-3 px-6 rounded-xl shadow-lg transform transition-all duration-200 text-lg ${
+                  isSubmitting
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-blue-500 hover:bg-blue-600 hover:scale-105 text-white"
+                }`}
               >
-                Order Now
+                {isSubmitting ? "Submitting..." : "Order Now"}
               </button>
             </div>
           </div>
 
-          {/* Mobile Layout Adjustments */}
+          {/* Mobile Submit Button */}
           <div className="md:hidden mt-4">
             <button
               type="button"
               onClick={handleSubmit}
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 text-lg"
+              disabled={isSubmitting}
+              className={`w-full font-bold py-4 px-6 rounded-xl shadow-lg transform transition-all duration-200 text-lg ${
+                isSubmitting
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-blue-500 hover:bg-blue-600 hover:scale-105 text-white"
+              }`}
             >
-              Order Now
+              {isSubmitting ? "Submitting..." : "Order Now"}
             </button>
           </div>
         </div>
@@ -171,11 +292,10 @@ const BookingForm = () => {
   );
 };
 
-const CleaningHero = () => {
+const Hero = () => {
   const heroRef = useRef(null);
 
   useEffect(() => {
-    // Simple fade-in animation for the entire hero section
     if (heroRef.current) {
       heroRef.current.style.opacity = "0";
       setTimeout(() => {
@@ -192,19 +312,15 @@ const CleaningHero = () => {
         className="bg-gradient-to-br from-[#3B82F6] via-[#54AADE] to-[#1E40AF] relative overflow-visible "
       >
         <div className="overflow-hidden">
-          {/* Background Elements - More subtle */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-20 left-10 w-20 h-20 bg-white rounded-full blur-lg"></div>
             <div className="absolute top-40 right-20 w-16 h-16 bg-white rounded-full blur-lg"></div>
             <div className="absolute bottom-40 left-20 w-12 h-12 bg-white rounded-full blur-lg"></div>
           </div>
 
-          {/* Content Container */}
           <div className="container mx-auto px-6 lg:px-8 relative py-16 z-10">
             <div className="grid md:grid-cols-2 items-center justify-between min-h-screen py-16 lg:py-20">
-              {/* Left Content Section */}
               <div className="text-center lg:text-left mb-12 lg:mb-0 lg:pr-8">
-                {/* Main Heading with Better Contrast */}
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8 font-montserrat drop-shadow-lg">
                   Professional Cleaning Backed by{" "}
                   <span className="text-yellow-300 relative inline-block font-montserrat">
@@ -214,17 +330,18 @@ const CleaningHero = () => {
                   of Excellence
                 </h1>
 
-                {/* Subtitle with Enhanced Readability */}
                 <p className="text-xl md:text-2xl font-dmsans text-white mb-10 leading-relaxed font-medium drop-shadow-md max-w-2xl mx-auto lg:mx-0">
                   Reliable, thorough cleaning services delivered by experienced
                   professionals who care about your space.
                 </p>
 
-                {/* Call-to-Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12 font-poppins">
-                  <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-4 px-8 rounded-xl shadow-xl transform hover:scale-105 transition-all duration-200 text-lg border-2 border-yellow-300">
+                  <Link
+                    href="#contact"
+                    className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-4 px-8 rounded-xl shadow-xl transform hover:scale-105 transition-all duration-200 text-lg border-2 border-yellow-300"
+                  >
                     Get Free Quote
-                  </button>
+                  </Link>
                   <Link
                     href="#services"
                     className="bg-white/15 backdrop-blur-md hover:bg-white/25 text-white border-2 border-white/40 hover:border-white/60 font-semibold py-4 px-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 text-lg text-center"
@@ -327,4 +444,4 @@ const CleaningHero = () => {
   );
 };
 
-export default CleaningHero;
+export default Hero;

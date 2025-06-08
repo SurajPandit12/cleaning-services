@@ -16,7 +16,7 @@ const ServiceCard = ({ icon: Icon, title, description, details, index }) => {
 
   return (
     <div
-      className="group relative h-96 w-full cursor-pointer"
+      className="group relative h-96 w-full cursor-pointer container"
       style={{ perspective: "1000px" }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

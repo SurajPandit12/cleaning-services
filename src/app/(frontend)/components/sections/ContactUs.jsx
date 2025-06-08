@@ -1,8 +1,15 @@
-"use client"
-import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+"use client";
+import {
+  AlertCircle,
+  CheckCircle,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+} from "lucide-react";
+import { useState } from "react";
 
-const ContactForm = () => {
+const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,6 +19,8 @@ const ContactForm = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [validationErrors, setValidationErrors] = useState({});
 
   const services = [
     "Regular Apartment Cleaning",
@@ -28,18 +37,58 @@ const ContactForm = () => {
       ...prev,
       [name]: value,
     }));
+
+    if (validationErrors[name]) {
+      setValidationErrors((prev) => ({
+        ...prev,
+        [name]: null,
+      }));
+    }
+    if (error) {
+      setError(null);
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(null);
+    setValidationErrors({});
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      const response = await fetch(
+        `${
+          process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
+        }/api/contact/send`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 400 && data.details) {
+          const errors = {};
+          data.details.forEach((detail) => {
+            errors[detail.field] = detail.message;
+          });
+          setValidationErrors(errors);
+        } else {
+          setError(
+            data.error || "An error occurred while sending your message"
+          );
+        }
+        return;
+      }
       setIsSubmitted(true);
+      console.log("✅ Form submitted successfully:", data);
 
-      // Reset form after 3 seconds
+      // Reset form after 8 seconds
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({
@@ -49,13 +98,18 @@ const ContactForm = () => {
           service: "",
           message: "",
         });
-      }, 3000);
-    }, 1000);
+      }, 4000);
+    } catch (err) {
+      console.error("❌ Network error:", err);
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isSubmitted) {
     return (
-      <div className="bg-white ">
+      <div className="bg-white">
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-2xl mx-auto">
             <div className="text-center bg-green-50 border border-green-200 rounded-xl p-8">
@@ -64,11 +118,14 @@ const ContactForm = () => {
                 Thank You!
               </h3>
               <p className="text-green-700 mb-4">
-                We've received your inquiry and will get back to you within 24
-                hours.
+                We've received your inquiry and will get back to you within 2-4
+                hours during business hours.
+              </p>
+              <p className="text-sm text-green-600 mb-4">
+                A confirmation email has been sent to your email address.
               </p>
               <p className="text-sm text-green-600">
-                Redirecting back to form...
+                Redirecting back to form in 5 seconds...
               </p>
             </div>
           </div>
@@ -82,10 +139,10 @@ const ContactForm = () => {
       <div className="container py-12">
         <div className="">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-montserrat">
               Get in Touch
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 font-dmsans">
               Ready to book a service or have questions? We'd love to hear from
               you.
             </p>
@@ -95,18 +152,18 @@ const ContactForm = () => {
             {/* Contact Information */}
             <div className="lg:col-span-1">
               <div className="bg-blue-50 rounded-xl p-6 h-full">
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6 font-montserrat">
                   Contact Information
                 </h3>
 
-                <div className="space-y-4">
+                <div className="space-y-4 font-dmsans">
                   <div className="flex items-start">
                     <div className="p-2 bg-blue-100 rounded-lg mr-4 flex-shrink-0">
                       <Phone className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Phone</p>
-                      <p className="text-gray-600">+61 XXX XXX XXX</p>
+                      <p className="text-gray-600">+61428757972</p>
                     </div>
                   </div>
 
@@ -116,7 +173,7 @@ const ContactForm = () => {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Email</p>
-                      <p className="text-gray-600">info@cleaningservice.com</p>
+                      <p className="text-gray-600">support@besteverhospitality.com.au</p>
                     </div>
                   </div>
 
@@ -126,7 +183,7 @@ const ContactForm = () => {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Service Areas</p>
-                      <p className="text-gray-600">Sydney Metro Area</p>
+                      <p className="text-gray-600">8 Prince street Clayton 3168</p>
                     </div>
                   </div>
                 </div>
@@ -136,17 +193,24 @@ const ContactForm = () => {
                     Quick Response
                   </h4>
                   <p className="text-sm text-gray-600">
-                    We typically respond to all inquiries within 2-4 hours
+                    We typically respond to all inquiries within 12 hours
                     during business hours.
                   </p>
                 </div>
               </div>
             </div>
-
-            {/* Contact Form */}
             <div className="lg:col-span-2">
               <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-                <div className="space-y-6">
+                {error && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start">
+                    <AlertCircle className="w-5 h-5 text-red-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-medium text-red-800 mb-1">Error</h4>
+                      <p className="text-red-700 text-sm">{error}</p>
+                    </div>
+                  </div>
+                )}
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label
@@ -162,9 +226,19 @@ const ContactForm = () => {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
+                          validationErrors.name
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300"
+                        }`}
                         placeholder="Enter your full name"
+                        disabled={isLoading}
                       />
+                      {validationErrors.name && (
+                        <p className="mt-1 text-sm text-red-600">
+                          {validationErrors.name}
+                        </p>
+                      )}
                     </div>
 
                     <div>
@@ -181,9 +255,19 @@ const ContactForm = () => {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
+                          validationErrors.email
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300"
+                        }`}
                         placeholder="Enter your email"
+                        disabled={isLoading}
                       />
+                      {validationErrors.email && (
+                        <p className="mt-1 text-sm text-red-600">
+                          {validationErrors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -201,11 +285,20 @@ const ContactForm = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
+                          validationErrors.phone
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300"
+                        }`}
                         placeholder="Enter your phone number"
+                        disabled={isLoading}
                       />
+                      {validationErrors.phone && (
+                        <p className="mt-1 text-sm text-red-600">
+                          {validationErrors.phone}
+                        </p>
+                      )}
                     </div>
-
                     <div>
                       <label
                         htmlFor="service"
@@ -218,7 +311,12 @@ const ContactForm = () => {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
+                          validationErrors.service
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300"
+                        }`}
+                        disabled={isLoading}
                       >
                         <option value="">Select a service</option>
                         {services.map((service, index) => (
@@ -227,9 +325,13 @@ const ContactForm = () => {
                           </option>
                         ))}
                       </select>
+                      {validationErrors.service && (
+                        <p className="mt-1 text-sm text-red-600">
+                          {validationErrors.service}
+                        </p>
+                      )}
                     </div>
                   </div>
-
                   <div>
                     <label
                       htmlFor="message"
@@ -244,16 +346,25 @@ const ContactForm = () => {
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none ${
+                        validationErrors.message
+                          ? "border-red-300 bg-red-50"
+                          : "border-gray-300"
+                      }`}
                       placeholder="Tell us about your cleaning needs, property size, preferred schedule, or any specific requirements..."
+                      disabled={isLoading}
                     />
+                    {validationErrors.message && (
+                      <p className="mt-1 text-sm text-red-600">
+                        {validationErrors.message}
+                      </p>
+                    )}
                   </div>
 
                   <div className="flex items-center justify-between pt-4">
                     <p className="text-sm text-gray-500">* Required fields</p>
                     <button
-                      type="button"
-                      onClick={handleSubmit}
+                      type="submit"
                       disabled={isLoading}
                       className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
@@ -270,12 +381,11 @@ const ContactForm = () => {
                       )}
                     </button>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
 
-          {/* Alternative Contact Methods */}
           <div className="mt-16">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-semibold text-gray-900 mb-2">
@@ -291,7 +401,7 @@ const ContactForm = () => {
               {/* WhatsApp */}
               <div>
                 <a
-                  href="https://wa.me/61XXXXXXXXX"
+                  href="https://wa.me/61428757972"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex flex-col items-center p-6 bg-white border border-gray-200 rounded-xl hover:border-green-300 hover:shadow-lg transition-all duration-300"
@@ -328,7 +438,6 @@ const ContactForm = () => {
                 </a>
               </div>
 
-              {/* Viber */}
               <div>
                 <a
                   href="viber://chat?number=61XXXXXXXXX"
@@ -387,4 +496,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default ContactUs;
