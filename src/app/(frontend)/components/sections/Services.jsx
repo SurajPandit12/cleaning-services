@@ -16,7 +16,7 @@ const ServiceCard = ({ icon: Icon, title, description, details, index }) => {
 
   return (
     <div
-      className="group relative h-96 w-full cursor-pointer container"
+      className="container group relative h-96 w-full cursor-pointer "
       style={{ perspective: "1000px" }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -268,7 +268,7 @@ const CleaningServices = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-blue-300/10 to-purple-300/10 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative container mx-auto px-6 py-16">
+      <div className="relative py-16">
         {/* Enhanced header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
@@ -280,7 +280,7 @@ const CleaningServices = () => {
             Our Premium Services
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 px-6 leading-relaxed">
             Professional cleaning solutions tailored to your specific needs with
             guaranteed satisfaction and exceptional attention to detail.
           </p>

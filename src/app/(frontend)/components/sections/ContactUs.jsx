@@ -167,7 +167,7 @@ const ContactUs = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-start">
+                  <div className="flex items-start font-dmsans">
                     <div className="p-2 bg-blue-100 rounded-lg mr-4 flex-shrink-0">
                       <Mail className="w-5 h-5 text-blue-600" />
                     </div>
@@ -177,7 +177,7 @@ const ContactUs = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-start">
+                  <div className="flex items-start font-dmsans">
                     <div className="p-2 bg-blue-100 rounded-lg mr-4 flex-shrink-0">
                       <MapPin className="w-5 h-5 text-blue-600" />
                     </div>
@@ -188,7 +188,7 @@ const ContactUs = () => {
                   </div>
                 </div>
 
-                <div className="mt-8 p-4 bg-white rounded-lg">
+                <div className="mt-8 p-4 bg-white rounded-lg font-dmsans">
                   <h4 className="font-semibold text-gray-900 mb-2">
                     Quick Response
                   </h4>
@@ -205,7 +205,7 @@ const ContactUs = () => {
                   <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start">
                     <AlertCircle className="w-5 h-5 text-red-600 mr-3 mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-medium text-red-800 mb-1">Error</h4>
+                      <h4 className="font-medium text-red-800 mb-1 font-poppins">Error</h4>
                       <p className="text-red-700 text-sm">{error}</p>
                     </div>
                   </div>
@@ -215,7 +215,7 @@ const ContactUs = () => {
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-sm font-medium text-gray-700 mb-2"
+                        className="block text-sm font-medium text-gray-700 mb-2 font-poppins"
                       >
                         Full Name *
                       </label>
@@ -244,7 +244,7 @@ const ContactUs = () => {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-medium text-gray-700 mb-2"
+                        className="block text-sm font-medium text-gray-700 mb-2 font-poppins"
                       >
                         Email Address *
                       </label>
@@ -275,7 +275,7 @@ const ContactUs = () => {
                     <div>
                       <label
                         htmlFor="phone"
-                        className="block text-sm font-medium text-gray-700 mb-2"
+                        className="block text-sm font-medium text-gray-700 mb-2 font-poppins"
                       >
                         Phone Number
                       </label>
@@ -302,7 +302,7 @@ const ContactUs = () => {
                     <div>
                       <label
                         htmlFor="service"
-                        className="block text-sm font-medium text-gray-700 mb-2"
+                        className="block text-sm font-medium text-gray-700 mb-2 font-poppins"
                       >
                         Service Interested In
                       </label>
@@ -335,7 +335,7 @@ const ContactUs = () => {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-gray-700 mb-2 font-poppins"
                     >
                       Message *
                     </label>
@@ -362,7 +362,7 @@ const ContactUs = () => {
                   </div>
 
                   <div className="flex items-center justify-between pt-4">
-                    <p className="text-sm text-gray-500">* Required fields</p>
+                    <p className="text-sm text-gray-500 font-dmsans">* Required fields</p>
                     <button
                       type="submit"
                       disabled={isLoading}
@@ -386,7 +386,7 @@ const ContactUs = () => {
             </div>
           </div>
 
-          <div className="mt-16">
+          <div className="mt-16 font-dmsans">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-semibold text-gray-900 mb-2">
                 Or Reach Out Directly

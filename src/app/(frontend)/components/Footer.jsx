@@ -83,13 +83,9 @@ export default function Footer() {
   return (
     <>
       <footer className="relative bg-gradient-to-br from-gray-50 via-blue-50/30 to-teal-50/30 border-t border-blue-100/50">
-        {/* Decorative top border */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-teal-500 to-blue-600"></div>
-
-        {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-4 lg:px-6 pt-16 pb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-            {/* Company Info */}
             <div className="lg:col-span-1 space-y-6">
               <div className="flex items-center space-x-4 group">
                 <div className="relative">
@@ -105,23 +101,21 @@ export default function Footer() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-700 to-teal-600 bg-clip-text text-transparent">
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-700 to-teal-600 bg-clip-text text-transparent font-poppins">
                     CleanLiving
                   </h3>
-                  <p className="text-sm text-gray-600 font-medium">
+                  <p className="text-sm text-gray-600 font-medium font-dmsans">
                     Professional Cleaning
                   </p>
                 </div>
               </div>
 
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed font-dmsans">
                 Transform your living space with our premium apartment cleaning
                 services. We bring sparkle and freshness to every corner of your
                 home.
               </p>
-
-              {/* Trust Badges */}
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-4 font-dmsans">
                 <div className="flex items-center space-x-2 text-sm text-gray-600 bg-white/60 px-3 py-2 rounded-full border border-gray-200">
                   <Shield className="w-4 h-4 text-green-600" />
                   <span>Insured</span>
@@ -133,13 +127,12 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Services */}
             <div className="space-y-6">
-              <h4 className="text-lg font-bold text-gray-800 flex items-center space-x-2">
+              <h4 className="text-lg font-bold text-gray-800 flex items-center space-x-2 font-poppins">
                 <Sparkles className="w-5 h-5 text-blue-600" />
                 <span>Our Services</span>
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-3 font-dmsans">
                 {services.map((service, index) => (
                   <li key={index} className="group">
                     <Link
@@ -154,10 +147,9 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Quick Links */}
             <div className="space-y-6">
-              <h4 className="text-lg font-bold text-gray-800">Quick Links</h4>
-              <ul className="space-y-3">
+              <h4 className="text-lg font-bold text-gray-800 font-poppins">Quick Links</h4>
+              <ul className="space-y-3 font-dmsans">
                 {quickLinks.map((link, index) => (
                   <li key={index} className="group">
                     <Link
@@ -172,16 +164,15 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Contact Info */}
             <div className="space-y-6">
-              <h4 className="text-lg font-bold text-gray-800">Get In Touch</h4>
+              <h4 className="text-lg font-bold text-gray-800 font-poppins">Get In Touch</h4>
 
               <div className="space-y-4">
                 <div className="flex items-start space-x-3 group">
                   <div className="p-2 bg-blue-100 rounded-lg group-hover:bg-blue-200 transition-colors duration-300">
                     <MapPin className="w-4 h-4 text-blue-600" />
                   </div>
-                  <div>
+                  <div className="font-dmsans">
                     <p className="text-sm text-gray-600 leading-relaxed">
                       8 prince street Clayton 3168,
                       <br />
@@ -194,7 +185,7 @@ export default function Footer() {
                   <div className="p-2 bg-green-100 rounded-lg group-hover:bg-green-200 transition-colors duration-300">
                     <Phone className="w-4 h-4 text-green-600" />
                   </div>
-                  <div>
+                  <div className="font-dmsans">
                     <Link
                       href="tel:+61428757972"
                       className="text-sm text-gray-600 hover:text-green-600 transition-colors duration-300"
@@ -211,7 +202,7 @@ export default function Footer() {
                   <div>
                     <Link
                       href="mailto:support@besteverhospitality.com.au"
-                      className="text-sm text-gray-600 hover:text-teal-600 transition-colors duration-300"
+                      className="text-sm text-gray-600 hover:text-teal-600 transition-colors duration-300 font-dmsans"
                     >
                       support@besteverhospitality.com.au
                     </Link>
@@ -221,7 +212,7 @@ export default function Footer() {
                   <div className="p-2 bg-purple-100 rounded-lg group-hover:bg-purple-200 transition-colors duration-300">
                     <Clock className="w-4 h-4 text-purple-600" />
                   </div>
-                  <div>
+                  <div className="font-dmsans">
                     <p className="text-sm text-gray-600 leading-relaxed">
                       Mon - Sat: 8:00 AM - 8:00 PM
                       <br />
@@ -231,7 +222,7 @@ export default function Footer() {
                 </div>
               </div>
               <div className="pt-2">
-                <h5 className="text-sm font-semibold text-gray-700 mb-3">
+                <h5 className="text-sm font-semibold text-gray-700 mb-3 font-dmsans">
                   Follow Us
                 </h5>
                 <div className="flex space-x-3">
@@ -252,15 +243,15 @@ export default function Footer() {
             <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-teal-600 rounded-2xl p-8 text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-teal-600 via-blue-700 to-blue-600 opacity-0 hover:opacity-100 transition-opacity duration-700"></div>
               <div className="relative z-10 text-center">
-                <h3 className="text-2xl font-bold mb-2 flex items-center justify-center space-x-2">
+                <h3 className="text-2xl font-bold mb-2 flex items-center justify-center space-x-2 font-poppins">
                   <Heart className="w-6 h-6 text-pink-200" />
                   <span>Stay Fresh & Clean</span>
                 </h3>
-                <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+                <p className="text-blue-100 mb-6 max-w-2xl mx-auto font-dmsans">
                   Subscribe to our newsletter for cleaning tips, special offers,
                   and schedule reminders.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                {/* <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                   <input
                     type="email"
                     placeholder="Enter your email"
@@ -269,7 +260,7 @@ export default function Footer() {
                   <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300 hover:shadow-lg">
                     Subscribe
                   </button>
-                </div>
+                </div> */}
               </div>
               <div className="absolute top-4 right-4 opacity-20">
                 <Sparkles className="w-8 h-8" />
@@ -286,7 +277,7 @@ export default function Footer() {
                   &copy; {new Date().getFullYear()} CleanLiving. All rights
                   reserved.
                 </p>
-                <div className="flex space-x-6">
+                <div className="flex space-x-6 font-dmsans">
                   <Link
                     href="#privacy"
                     className="hover:text-blue-600 transition-colors duration-300"
@@ -307,7 +298,7 @@ export default function Footer() {
                   </Link>
                 </div>
               </div>
-              <div className="text-sm text-gray-600 flex items-center space-x-2">
+              <div className="text-sm text-gray-600 flex items-center space-x-2 font-dmsans">
                 <span>Made with</span>
                 <Heart className="w-4 h-4 text-red-500 animate-pulse" />
                 <span>for clean homes</span>

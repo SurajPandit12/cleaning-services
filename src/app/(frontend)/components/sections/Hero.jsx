@@ -129,9 +129,8 @@ const BookingForm = () => {
   return (
     <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-40 w-full max-w-7xl px-4">
       <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-visible">
-        <div className="p-6 lg:p-8">
+        <div className="p-6 lg:p-8 lg:block hidden">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-6 items-end">
-            {/* Location Input */}
             <div className="lg:col-span-1">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Location
@@ -154,8 +153,6 @@ const BookingForm = () => {
                 <p className="text-red-500 text-xs mt-1">{errors.location}</p>
               )}
             </div>
-
-            {/* Service Type Dropdown */}
             <div className="lg:col-span-2 relative">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Service Type
@@ -185,7 +182,6 @@ const BookingForm = () => {
                     }`}
                   />
                 </button>
-
                 {dropdownOpen === "service" && (
                   <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-48 overflow-y-auto">
                     {serviceOptions.map((option, index) => (
@@ -210,8 +206,6 @@ const BookingForm = () => {
                 </p>
               )}
             </div>
-
-            {/* Date Input */}
             <div className="lg:col-span-1">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Date
@@ -231,8 +225,6 @@ const BookingForm = () => {
                 <p className="text-red-500 text-xs mt-1">{errors.date}</p>
               )}
             </div>
-
-            {/* Phone Input */}
             <div className="lg:col-span-1">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Phone Number
@@ -253,8 +245,6 @@ const BookingForm = () => {
                 <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
               )}
             </div>
-
-            {/* Submit Button */}
             <div className="lg:col-span-1">
               <button
                 type="button"
@@ -270,8 +260,6 @@ const BookingForm = () => {
               </button>
             </div>
           </div>
-
-          {/* Mobile Submit Button */}
           <div className="md:hidden mt-4">
             <button
               type="button"
@@ -317,7 +305,6 @@ const Hero = () => {
             <div className="absolute top-40 right-20 w-16 h-16 bg-white rounded-full blur-lg"></div>
             <div className="absolute bottom-40 left-20 w-12 h-12 bg-white rounded-full blur-lg"></div>
           </div>
-
           <div className="container mx-auto px-6 lg:px-8 relative py-16 z-10">
             <div className="grid md:grid-cols-2 items-center justify-between min-h-screen py-16 lg:py-20">
               <div className="text-center lg:text-left mb-12 lg:mb-0 lg:pr-8">
@@ -325,7 +312,7 @@ const Hero = () => {
                   Professional Cleaning Backed by{" "}
                   <span className="text-yellow-300 relative inline-block font-montserrat">
                     10+ Years
-                    <div className="absolute -bottom-2 left-0 right-0 h-1 bg-yellow-400 rounded-full font-montserrat shadow-sm"></div>
+                    <div className=" lg:block hidden absolute -bottom-2 left-0 right-0 h-1 bg-yellow-400 rounded-full font-montserrat shadow-sm"></div>
                   </span>{" "}
                   of Excellence
                 </h1>
@@ -349,37 +336,32 @@ const Hero = () => {
                     View Services
                   </Link>
                 </div>
-
-                {/* Trust Indicators with Better Visibility */}
                 <div className="flex flex-wrap justify-center lg:justify-start gap-8 text-white font-dmsans">
                   <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 shadow-lg">
-                    <div className="text-3xl font-bold text-yellow-300 mb-1">
+                    <div className="text-3xl font-bold text-yellow-300 mb-1 font-poppins">
                       500+
                     </div>
-                    <div className="text-sm ">Happy Customers</div>
+                    <div className="text-sm font-dmsans">Happy Customers</div>
                   </div>
                   <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 shadow-lg">
-                    <div className="text-3xl font-bold text-yellow-300 mb-1">
+                    <div className="text-3xl font-bold text-yellow-300 mb-1 font-poppins">
                       10+
                     </div>
-                    <div className="text-sm ">Years Experience</div>
+                    <div className="text-sm  font-dmsans">Years Experience</div>
                   </div>
                   <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 shadow-lg">
-                    <div className="text-3xl font-bold text-yellow-300 mb-1">
+                    <div className="text-3xl font-bold text-yellow-300 mb-1 font-poppins">
                       24/7
                     </div>
-                    <div className="text-sm">Available</div>
+                    <div className="text-sm font-dmsans">Available</div>
                   </div>
                 </div>
               </div>
 
-              {/* Right Image Section */}
               <div className="hidden lg:flex">
                 <div className=" ">
-                  {/* Main Image Container */}
                   <div className="relative bg-white/15 backdrop-blur-md rounded-3xl p-6 shadow-2xl border border-white/20">
                     <div className="relative overflow-hidden rounded-2xl bg-white/10">
-                      {/* Fallback Image */}
                       <div className="">
                         <Image
                           width={800}
@@ -390,8 +372,6 @@ const Hero = () => {
                         />
                       </div>
                     </div>
-
-                    {/* Rating Card - Better positioned */}
                     <div className="absolute -right-3 -bottom-3 bg-white rounded-xl p-5 shadow-xl border hidden lg:block border-gray-100">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-gray-800 mb-2">
@@ -408,22 +388,18 @@ const Hero = () => {
                             </svg>
                           ))}
                         </div>
-                        <div className="text-xs text-gray-600 font-medium">
+                        <div className="text-xs text-gray-600 font-medium font-dmsans">
                           Trusted Rating
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                {/* Subtle Background Decorations */}
                 <div className="absolute top-10 -right-8 w-32 h-32 bg-yellow-400/10 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
               </div>
             </div>
           </div>
-
-          {/* Bottom Wave Transition */}
           <div className="absolute bottom-0 left-0 right-0 z-10">
             <svg
               viewBox="0 0 1200 120"
@@ -433,12 +409,9 @@ const Hero = () => {
               <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
             </svg>
           </div>
-
-          {/* Booking Form - Positioned to span across hero boundary */}
           <BookingForm />
         </div>
       </div>
-      {/* Add spacing below hero to accommodate the form */}
       <div className="h-32 bg-white"></div>
     </>
   );

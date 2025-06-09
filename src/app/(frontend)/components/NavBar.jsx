@@ -49,7 +49,7 @@ export default function Navbar() {
           <div className="flex items-center justify-center space-x-6">
             <div className="flex items-center space-x-2 font-dmsans">
               <Phone className="w-3 h-3" />
-              <span>Call Now: (555) 123-4567</span>
+              <span>Call Now: +61428757972</span>
             </div>
             <div className="hidden md:flex items-center space-x-2">
               <Sparkles className="w-3 h-3" />
@@ -60,7 +60,6 @@ export default function Navbar() {
 
         <nav className="max-w-7xl mx-auto px-4 lg:px-6">
           <div className="flex items-center justify-between h-20">
-            {/* Enhanced Logo */}
             <Link
               href="/"
               className="flex items-center space-x-4 group relative"
@@ -70,10 +69,11 @@ export default function Navbar() {
                 <div className="relative w-14 h-14 rounded-xl overflow-hidden border-2 border-transparent bg-gradient-to-br from-blue-500 via-purple-500 to-teal-500 p-0.5 group-hover:scale-105 transition-all duration-500">
                   <div className="w-full h-full bg-white rounded-lg flex items-center justify-center">
                     <Image
-                    width={50}
-                    height={50}
-                    alt="logo"
-                    src="/images/logo.jpg" />
+                      width={50}
+                      height={50}
+                      alt="logo"
+                      src="/images/logo.jpg"
+                    />
                   </div>
                 </div>
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
