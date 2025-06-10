@@ -126,158 +126,158 @@ const BookingForm = () => {
     }
   };
 
-  return (
-    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-40 w-full max-w-7xl px-4">
-      <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-visible">
-        <div className="p-6 lg:p-8 lg:block hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-6 items-end">
-            <div className="lg:col-span-1">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Location
-              </label>
-              <div className="relative">
-                <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <input
-                  type="text"
-                  placeholder="Your Location?"
-                  value={formData.location}
-                  onChange={(e) =>
-                    handleInputChange("location", e.target.value)
-                  }
-                  className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700 placeholder-gray-400 ${
-                    errors.location ? "border-red-500" : "border-gray-200"
-                  }`}
-                />
-              </div>
-              {errors.location && (
-                <p className="text-red-500 text-xs mt-1">{errors.location}</p>
-              )}
-            </div>
-            <div className="lg:col-span-2 relative">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Service Type
-              </label>
-              <div className="relative">
-                <button
-                  type="button"
-                  onClick={() =>
-                    setDropdownOpen(
-                      dropdownOpen === "service" ? null : "service"
-                    )
-                  }
-                  className={`w-full pl-4 pr-10 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-left bg-white flex items-center justify-between ${
-                    errors.serviceType ? "border-red-500" : "border-gray-200"
-                  }`}
-                >
-                  <span
-                    className={
-                      formData.serviceType ? "text-gray-700" : "text-gray-400"
-                    }
-                  >
-                    {formData.serviceType || "Choose Service"}
-                  </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-gray-400 transition-transform ${
-                      dropdownOpen === "service" ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {dropdownOpen === "service" && (
-                  <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-48 overflow-y-auto">
-                    {serviceOptions.map((option, index) => (
-                      <button
-                        key={index}
-                        type="button"
-                        onClick={() => {
-                          handleInputChange("serviceType", option);
-                          setDropdownOpen(null);
-                        }}
-                        className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors text-gray-700 border-b border-gray-100 last:border-b-0"
-                      >
-                        {option}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-              {errors.serviceType && (
-                <p className="text-red-500 text-xs mt-1">
-                  {errors.serviceType}
-                </p>
-              )}
-            </div>
-            <div className="lg:col-span-1">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Date
-              </label>
-              <div className="relative">
-                <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <input
-                  type="date"
-                  value={formData.date}
-                  onChange={(e) => handleInputChange("date", e.target.value)}
-                  className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700 ${
-                    errors.date ? "border-red-500" : "border-gray-200"
-                  }`}
-                />
-              </div>
-              {errors.date && (
-                <p className="text-red-500 text-xs mt-1">{errors.date}</p>
-              )}
-            </div>
-            <div className="lg:col-span-1">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Phone Number
-              </label>
-              <div className="relative">
-                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  value={formData.phone}
-                  onChange={(e) => handleInputChange("phone", e.target.value)}
-                  className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700 placeholder-gray-400 ${
-                    errors.phone ? "border-red-500" : "border-gray-200"
-                  }`}
-                />
-              </div>
-              {errors.phone && (
-                <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
-              )}
-            </div>
-            <div className="lg:col-span-1">
-              <button
-                type="button"
-                onClick={handleSubmit}
-                disabled={isSubmitting}
-                className={`w-full font-bold py-3 px-6 rounded-xl shadow-lg transform transition-all duration-200 text-lg ${
-                  isSubmitting
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-blue-500 hover:bg-blue-600 hover:scale-105 text-white"
-                }`}
-              >
-                {isSubmitting ? "Submitting..." : "Order Now"}
-              </button>
-            </div>
-          </div>
-          <div className="md:hidden mt-4">
-            <button
-              type="button"
-              onClick={handleSubmit}
-              disabled={isSubmitting}
-              className={`w-full font-bold py-4 px-6 rounded-xl shadow-lg transform transition-all duration-200 text-lg ${
-                isSubmitting
-                  ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-blue-500 hover:bg-blue-600 hover:scale-105 text-white"
-              }`}
-            >
-              {isSubmitting ? "Submitting..." : "Order Now"}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  // return (
+  //   <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-40 w-full max-w-7xl px-4">
+  //     <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-visible">
+  //       <div className="p-6 lg:p-8 lg:block hidden">
+  //         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-6 items-end">
+  //           <div className="lg:col-span-1">
+  //             <label className="block text-sm font-semibold text-gray-700 mb-2">
+  //               Location
+  //             </label>
+  //             <div className="relative">
+  //               <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+  //               <input
+  //                 type="text"
+  //                 placeholder="Your Location?"
+  //                 value={formData.location}
+  //                 onChange={(e) =>
+  //                   handleInputChange("location", e.target.value)
+  //                 }
+  //                 className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700 placeholder-gray-400 ${
+  //                   errors.location ? "border-red-500" : "border-gray-200"
+  //                 }`}
+  //               />
+  //             </div>
+  //             {errors.location && (
+  //               <p className="text-red-500 text-xs mt-1">{errors.location}</p>
+  //             )}
+  //           </div>
+  //           <div className="lg:col-span-2 relative">
+  //             <label className="block text-sm font-semibold text-gray-700 mb-2">
+  //               Service Type
+  //             </label>
+  //             <div className="relative">
+  //               <button
+  //                 type="button"
+  //                 onClick={() =>
+  //                   setDropdownOpen(
+  //                     dropdownOpen === "service" ? null : "service"
+  //                   )
+  //                 }
+  //                 className={`w-full pl-4 pr-10 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-left bg-white flex items-center justify-between ${
+  //                   errors.serviceType ? "border-red-500" : "border-gray-200"
+  //                 }`}
+  //               >
+  //                 <span
+  //                   className={
+  //                     formData.serviceType ? "text-gray-700" : "text-gray-400"
+  //                   }
+  //                 >
+  //                   {formData.serviceType || "Choose Service"}
+  //                 </span>
+  //                 <ChevronDown
+  //                   className={`w-5 h-5 text-gray-400 transition-transform ${
+  //                     dropdownOpen === "service" ? "rotate-180" : ""
+  //                   }`}
+  //                 />
+  //               </button>
+  //               {dropdownOpen === "service" && (
+  //                 <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-48 overflow-y-auto">
+  //                   {serviceOptions.map((option, index) => (
+  //                     <button
+  //                       key={index}
+  //                       type="button"
+  //                       onClick={() => {
+  //                         handleInputChange("serviceType", option);
+  //                         setDropdownOpen(null);
+  //                       }}
+  //                       className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors text-gray-700 border-b border-gray-100 last:border-b-0"
+  //                     >
+  //                       {option}
+  //                     </button>
+  //                   ))}
+  //                 </div>
+  //               )}
+  //             </div>
+  //             {errors.serviceType && (
+  //               <p className="text-red-500 text-xs mt-1">
+  //                 {errors.serviceType}
+  //               </p>
+  //             )}
+  //           </div>
+  //           <div className="lg:col-span-1">
+  //             <label className="block text-sm font-semibold text-gray-700 mb-2">
+  //               Date
+  //             </label>
+  //             <div className="relative">
+  //               <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+  //               <input
+  //                 type="date"
+  //                 value={formData.date}
+  //                 onChange={(e) => handleInputChange("date", e.target.value)}
+  //                 className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700 ${
+  //                   errors.date ? "border-red-500" : "border-gray-200"
+  //                 }`}
+  //               />
+  //             </div>
+  //             {errors.date && (
+  //               <p className="text-red-500 text-xs mt-1">{errors.date}</p>
+  //             )}
+  //           </div>
+  //           <div className="lg:col-span-1">
+  //             <label className="block text-sm font-semibold text-gray-700 mb-2">
+  //               Phone Number
+  //             </label>
+  //             <div className="relative">
+  //               <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+  //               <input
+  //                 type="tel"
+  //                 placeholder="Phone Number"
+  //                 value={formData.phone}
+  //                 onChange={(e) => handleInputChange("phone", e.target.value)}
+  //                 className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-700 placeholder-gray-400 ${
+  //                   errors.phone ? "border-red-500" : "border-gray-200"
+  //                 }`}
+  //               />
+  //             </div>
+  //             {errors.phone && (
+  //               <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+  //             )}
+  //           </div>
+  //           <div className="lg:col-span-1">
+  //             <button
+  //               type="button"
+  //               onClick={handleSubmit}
+  //               disabled={isSubmitting}
+  //               className={`w-full font-bold py-3 px-6 rounded-xl shadow-lg transform transition-all duration-200 text-lg ${
+  //                 isSubmitting
+  //                   ? "bg-gray-400 cursor-not-allowed"
+  //                   : "bg-blue-500 hover:bg-blue-600 hover:scale-105 text-white"
+  //               }`}
+  //             >
+  //               {isSubmitting ? "Submitting..." : "Order Now"}
+  //             </button>
+  //           </div>
+  //         </div>
+  //         <div className="md:hidden mt-4">
+  //           <button
+  //             type="button"
+  //             onClick={handleSubmit}
+  //             disabled={isSubmitting}
+  //             className={`w-full font-bold py-4 px-6 rounded-xl shadow-lg transform transition-all duration-200 text-lg ${
+  //               isSubmitting
+  //                 ? "bg-gray-400 cursor-not-allowed"
+  //                 : "bg-blue-500 hover:bg-blue-600 hover:scale-105 text-white"
+  //             }`}
+  //           >
+  //             {isSubmitting ? "Submitting..." : "Order Now"}
+  //           </button>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
 
 const Hero = () => {
@@ -318,8 +318,9 @@ const Hero = () => {
                 </h1>
 
                 <p className="text-xl md:text-2xl font-dmsans text-white mb-10 leading-relaxed font-medium drop-shadow-md max-w-2xl mx-auto lg:mx-0">
-                  Reliable, thorough cleaning services delivered by experienced
-                  professionals who care about your space.
+                  Reliable, trained, and police-verified cleaning professionals
+                  serving apartments, offices, and short-stay propertieswith
+                  eco-friendly products and 100% satisfaction guarantee.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12 font-poppins">

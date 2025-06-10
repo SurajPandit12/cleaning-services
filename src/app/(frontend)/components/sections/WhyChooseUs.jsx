@@ -10,6 +10,7 @@ import {
   Sparkles,
   CheckCircle,
 } from "lucide-react";
+import Link from "next/link";
 
 const WhyChooseUs = () => {
   const containerRef = useRef(null);
@@ -172,12 +173,15 @@ const WhyChooseUs = () => {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <div className="inline-flex flex-col sm:flex-row gap-4">
-            <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+            <Link
+              href="#contact"
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            >
               Get Your Free Quote
-            </button>
-            <button className="px-8 py-4 bg-white text-slate-700 font-semibold rounded-xl border-2 border-slate-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300">
+            </Link>
+            <Link href="#services" className="px-8 py-4 bg-white text-slate-700 font-semibold rounded-xl border-2 border-slate-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300">
               Learn More About Us
-            </button>
+            </Link>
           </div>
           <p className="text-sm text-slate-500 mt-4">
             Ready to experience the cleanest home of your life? Contact us

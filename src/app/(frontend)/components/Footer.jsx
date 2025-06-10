@@ -47,8 +47,8 @@ export default function Footer() {
   const quickLinks = [
     { href: "#about", label: "About Us" },
     { href: "#services", label: "Our Services" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#testimonials", label: "Reviews" },
+    { href: "#whychooseus", label: "Whychoose Us" },
+    { href: "#", label: "Reviews" },
     { href: "#contact", label: "Contact" },
     { href: "#careers", label: "Careers" },
   ];
@@ -82,9 +82,9 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="relative bg-gradient-to-br from-gray-50 via-blue-50/30 to-teal-50/30 border-t border-blue-100/50">
+      <footer className=" container relative bg-gradient-to-br from-gray-50 via-blue-50/30 to-teal-50/30 border-t border-blue-100/50">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-teal-500 to-blue-600"></div>
-        <div className="max-w-7xl mx-auto px-4 lg:px-6 pt-16 pb-8">
+        <div className="max-w-7xl mx-auto pt-16 pb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             <div className="lg:col-span-1 space-y-6">
               <div className="flex items-center space-x-4 group">
@@ -148,7 +148,9 @@ export default function Footer() {
             </div>
 
             <div className="space-y-6">
-              <h4 className="text-lg font-bold text-gray-800 font-poppins">Quick Links</h4>
+              <h4 className="text-lg font-bold text-gray-800 font-poppins">
+                Quick Links
+              </h4>
               <ul className="space-y-3 font-dmsans">
                 {quickLinks.map((link, index) => (
                   <li key={index} className="group">
@@ -165,7 +167,9 @@ export default function Footer() {
             </div>
 
             <div className="space-y-6">
-              <h4 className="text-lg font-bold text-gray-800 font-poppins">Get In Touch</h4>
+              <h4 className="text-lg font-bold text-gray-800 font-poppins">
+                Get In Touch
+              </h4>
 
               <div className="space-y-4">
                 <div className="flex items-start space-x-3 group">
@@ -201,10 +205,10 @@ export default function Footer() {
                   </div>
                   <div>
                     <Link
-                      href="mailto:support@besteverhospitality.com.au"
+                      href="mailto:asok123123@gmail.com"
                       className="text-sm text-gray-600 hover:text-teal-600 transition-colors duration-300 font-dmsans"
                     >
-                      support@besteverhospitality.com.au
+                      asok123123@gmail.com
                     </Link>
                   </div>
                 </div>

@@ -90,7 +90,6 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* Professional Desktop Navigation */}
             <div className="hidden lg:flex items-center font-dmsans space-x-1">
               {navLinks.map((link) => (
                 <Link
@@ -107,7 +106,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Professional CTA & Mobile Menu */}
             <div className="flex items-center space-x-4 font-poppins">
               <Link
                 href="#contact"
@@ -118,7 +116,6 @@ export default function Navbar() {
                 <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </Link>
 
-              {/* Professional Mobile Menu Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="lg:hidden p-2 text-gray-600 hover:text-blue-600 transition-colors duration-300"
@@ -133,7 +130,6 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* Professional Mobile Menu */}
         {isOpen && (
           <div className="lg:hidden bg-white shadow-xl border-t border-gray-100">
             <div className="max-w-7xl mx-auto px-4 py-4 space-y-1">
@@ -148,7 +144,6 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              {/* Mobile CTA */}
               <div className="pt-4 border-t border-gray-100 mt-4">
                 <Link
                   href="#contact"
@@ -162,11 +157,13 @@ export default function Navbar() {
                 <div className="flex flex-col items-center space-y-2 mt-4 text-sm">
                   <div className="flex items-center space-x-2 text-gray-600">
                     <Phone className="w-4 h-4 text-blue-500" />
-                    <span className="font-medium">(555) 123-4567</span>
+                    <span className="font-medium">+61428757972</span>
                   </div>
                   <div className="flex items-center space-x-2 text-gray-600">
                     <Mail className="w-4 h-4 text-purple-500" />
-                    <span className="font-medium">hello@cleanliving.com</span>
+                    <span className="font-medium">
+                      asok123123@gmail.com
+                    </span>
                   </div>
                 </div>
               </div>
@@ -174,8 +171,6 @@ export default function Navbar() {
           </div>
         )}
       </header>
-
-      {/* Mobile Menu Overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"

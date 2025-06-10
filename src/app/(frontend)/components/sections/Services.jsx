@@ -309,13 +309,14 @@ const CleaningServices = () => {
           ))}
         </div>
 
-        {/* Call to action */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
+        {/* <div className="text-center">
+          <div
+            className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
+          >
             <span className="font-semibold">Ready to get started?</span>
             <ArrowRight className="w-5 h-5" />
           </div>
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`

@@ -8,6 +8,7 @@ import {
   PhoneCall,
   Star,
 } from "lucide-react";
+import Link from "next/link";
 
 const services = [
   {
@@ -57,9 +58,12 @@ const AboutUs = () => {
           Affordable, reliable, and professional cleaning services tailored to
           your needs.
         </p>
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-lg hover:bg-blue-700 transition">
+        <Link
+          href="#contact"
+          className="bg-blue-600 text-white px-6 py-3 rounded-full text-lg hover:bg-blue-700 transition"
+        >
           Get a Free Quote
-        </button>
+        </Link>
       </div>
 
       <div className="grid md:grid-cols-3 gap-8 mt-16 max-w-6xl mx-auto">
