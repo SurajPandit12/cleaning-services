@@ -192,7 +192,7 @@ ${new Date().toLocaleString("en-AU", { timeZone: "Australia/Sydney" })}
               <p style="margin: 0 0 10px 0; color: #475569;">Feel free to contact us directly:</p>
               <ul style="margin: 0; padding-left: 20px; color: #475569;">
                 <li style="margin-bottom: 5px;">📧 Email: <a href="mailto:support@besteverhospitality.com.au" style="color: #2563eb; text-decoration: none;">support@besteverhospitality.com.au</a></li>
-                <li>📱 Phone: <a href="tel:+61XXXXXXXXX" style="color: #2563eb; text-decoration: none;">+61 XXX XXX XXX</a></li>
+                <li>📱 Phone: <a href="tel:+61428757972" style="color: #2563eb; text-decoration: none;">+61 428 757 972</a></li>
               </ul>
             </div>
           </div>
@@ -203,7 +203,7 @@ ${new Date().toLocaleString("en-AU", { timeZone: "Australia/Sydney" })}
               <strong style="color: #0369a1;">The Best Ever Hospitality Team</strong>
             </p>
             <p style="color: #64748b; font-size: 12px; margin: 0;">
-              Professional Cleaning Services • Sydney Metro Area<br>
+              Professional Cleaning Services • Melbourne Metro Area<br>
               Available 7 days a week
             </p>
           </div>
@@ -228,11 +228,11 @@ Our team will review your inquiry and get back to you within 2-4 hours during bu
 
 📞 NEED IMMEDIATE ASSISTANCE?
 Email: support@besteverhospitality.com.au
-Phone: +61 XXX XXX XXX
+Phone: +61 428 757 972
 
 Best regards,
 The Best Ever Hospitality Team
-Professional Cleaning Services • Sydney Metro Area
+Professional Cleaning Services • Melbourne Metro Area
 Available 7 days a week
     `;
 

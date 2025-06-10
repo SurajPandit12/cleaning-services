@@ -56,18 +56,18 @@ const ContactUs = () => {
     setValidationErrors({});
 
     try {
-      const response = await fetch(
-        `${
-          process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"
-        }/api/contact/send`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const apiUrl =
+        process.env.NODE_ENV === "production"
+          ? process.env.NEXT_PUBLIC_API_URL || window.location.origin
+          : process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
+      const response = await fetch(`${apiUrl}/api/contact/send`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       const data = await response.json();
 
@@ -85,10 +85,11 @@ const ContactUs = () => {
         }
         return;
       }
+
       setIsSubmitted(true);
       console.log("✅ Form submitted successfully:", data);
 
-      // Reset form after 8 seconds
+      // Reset form after 4 seconds
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({
