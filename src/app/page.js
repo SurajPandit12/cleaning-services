@@ -1,3 +1,4 @@
+import Head from "next/head";
 import AboutUs from "./(frontend)/components/sections/AboutUs";
 import ContactUs from "./(frontend)/components/sections/ContactUs";
 import Hero from "./(frontend)/components/sections/Hero";
@@ -29,6 +30,12 @@ export const metadata = {
 export default function Home() {
   return (
     <>
+      <Head>
+        <link rel="icon" href="/images/logo.png" type="image/png" />
+        {/* Or use .ico */}
+        {/* <link rel="icon" href="/favicon.ico" /> */}
+        <title>Top Cleaning Services</title>
+      </Head>
       <section id="home" className="section-offset">
         <Hero />
       </section>

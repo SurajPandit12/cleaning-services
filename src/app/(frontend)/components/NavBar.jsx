@@ -82,10 +82,10 @@ export default function Navbar() {
               </div>
               <div className="flex flex-col">
                 <span className="text-3xl font-black bg-gradient-to-r from-gray-800 via-blue-600 to-purple-600 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-500">
-                  CleanLiving
+                  Best Ever
                 </span>
                 <span className="text-xs font-semibold text-gray-500 hidden sm:block group-hover:text-blue-500 transition-colors duration-300">
-                  Premium Cleaning Excellence
+                  Cleaning Services & Hospitality
                 </span>
               </div>
             </Link>
