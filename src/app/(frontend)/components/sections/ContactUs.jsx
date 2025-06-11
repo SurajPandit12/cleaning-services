@@ -184,7 +184,9 @@ const ContactUs = () => {
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Service Areas</p>
-                      <p className="text-gray-600">8 Prince street Clayton 3168</p>
+                      <p className="text-gray-600">
+                        8 Prince street Clayton 3168
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -194,8 +196,8 @@ const ContactUs = () => {
                     Quick Response
                   </h4>
                   <p className="text-sm text-gray-600">
-                    We typically respond to all inquiries within 12 hours
-                    during business hours.
+                    We typically respond to all inquiries within 12 hours during
+                    business hours.
                   </p>
                 </div>
               </div>
@@ -206,7 +208,9 @@ const ContactUs = () => {
                   <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start">
                     <AlertCircle className="w-5 h-5 text-red-600 mr-3 mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-medium text-red-800 mb-1 font-poppins">Error</h4>
+                      <h4 className="font-medium text-red-800 mb-1 font-poppins">
+                        Error
+                      </h4>
                       <p className="text-red-700 text-sm">{error}</p>
                     </div>
                   </div>
@@ -363,7 +367,9 @@ const ContactUs = () => {
                   </div>
 
                   <div className="flex items-center justify-between pt-4">
-                    <p className="text-sm text-gray-500 font-dmsans">* Required fields</p>
+                    <p className="text-sm text-gray-500 font-dmsans">
+                      * Required fields
+                    </p>
                     <button
                       type="submit"
                       disabled={isLoading}
@@ -426,7 +432,7 @@ const ContactUs = () => {
               {/* Email */}
               <div>
                 <a
-                  href="mailto:info@cleaningservice.com"
+                  href="mailto:asok123123@gmail.com"
                   className="group flex flex-col items-center p-6 bg-white border border-gray-200 rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="p-3 bg-blue-50 rounded-full mb-3 group-hover:bg-blue-100 transition-colors">
@@ -441,7 +447,7 @@ const ContactUs = () => {
 
               <div>
                 <a
-                  href="viber://chat?number=61XXXXXXXXX"
+                  href="viber://chat?number=61428757972"
                   className="group flex flex-col items-center p-6 bg-white border border-gray-200 rounded-xl hover:border-purple-300 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="p-3 bg-purple-50 rounded-full mb-3 group-hover:bg-purple-100 transition-colors">

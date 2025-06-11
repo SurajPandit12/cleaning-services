@@ -31,15 +31,11 @@ const ServiceCard = ({ icon: Icon, title, description, details, index }) => {
           transform: isHovered ? "rotateY(180deg)" : "rotateY(0deg)",
         }}
       >
-        {/* Front of card */}
         <div
           className="absolute inset-0 bg-white rounded-2xl shadow-xl border border-gray-100/50 backdrop-blur-sm overflow-hidden"
           style={{ backfaceVisibility: "hidden" }}
         >
-          {/* Animated gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-          {/* Subtle pattern overlay */}
           <div
             className="absolute inset-0 opacity-5"
             style={{
@@ -47,16 +43,13 @@ const ServiceCard = ({ icon: Icon, title, description, details, index }) => {
               backgroundSize: "24px 24px",
             }}
           ></div>
-
           <div className="relative h-full p-8 flex flex-col items-center justify-center text-center">
-            {/* Icon with enhanced styling */}
             <div className="relative mb-6">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300 scale-110"></div>
               <div className="relative p-5 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:-rotate-6">
                 <Icon className="w-8 h-8 text-white" />
               </div>
 
-              {/* Floating particles */}
               <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all duration-300"></div>
               <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200"></div>
             </div>
@@ -68,19 +61,14 @@ const ServiceCard = ({ icon: Icon, title, description, details, index }) => {
             <p className="text-gray-600 text-base leading-relaxed mb-6 group-hover:text-gray-700 transition-colors duration-300">
               {description}
             </p>
-
-            {/* Enhanced hover indicator */}
             <div className="flex items-center gap-2 text-sm font-medium text-blue-600 opacity-60 group-hover:opacity-100 transition-all duration-300">
               <span>Discover details</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </div>
-
-            {/* Corner accent */}
             <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-blue-200 opacity-20 group-hover:opacity-60 transition-opacity duration-300"></div>
           </div>
         </div>
 
-        {/* Back of card */}
         <div
           className="absolute inset-0 rounded-2xl shadow-2xl overflow-hidden"
           style={{
@@ -289,7 +277,7 @@ const CleaningServices = () => {
         </div>
 
         {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {services.map((service, index) => (
             <div
               key={index}

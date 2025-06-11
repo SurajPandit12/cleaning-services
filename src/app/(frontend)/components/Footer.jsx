@@ -62,7 +62,7 @@ export default function Footer() {
     },
     {
       icon: Instagram,
-      href: "#",
+      href: "https://www.instagram.com/bestever.cleaning/",
       color: "hover:text-pink-600",
       bg: "hover:bg-pink-50",
     },
