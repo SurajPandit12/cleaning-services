@@ -463,7 +463,7 @@ const ContactUs = () => {
               {/* Instagram */}
               <div>
                 <a
-                  href="https://instagram.com/cleaningservice"
+                  href="https://www.instagram.com/bestever.cleaning/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex flex-col items-center p-6 bg-white border border-gray-200 rounded-xl hover:border-pink-300 hover:shadow-lg transition-all duration-300"
@@ -487,7 +487,7 @@ const ContactUs = () => {
 
             <div className="text-center mt-8">
               <p className="text-sm text-gray-500">
-                Available 7 days a week • Response within 2-4 hours
+                Available 7 days a week • Response within 12 hours
               </p>
             </div>
           </div>

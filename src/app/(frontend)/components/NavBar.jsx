@@ -26,7 +26,7 @@ export default function Navbar() {
     { href: "#about", label: "About" },
     { href: "#services", label: "Services" },
     { href: "#whychooseus", label: "Why Choose Us" },
-    { href: "#testimonials", label: "Reviews" },
+    { href: "#testimonials", label: "Pricing" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -53,7 +53,7 @@ export default function Navbar() {
             </div>
             <div className="hidden md:flex items-center space-x-2">
               <Sparkles className="w-3 h-3" />
-              <span>✨ 20% OFF First Clean - Limited Time!</span>
+              <span>✨ 10% OFF First Clean - Limited Time!</span>
             </div>
           </div>
         </div>
@@ -65,14 +65,14 @@ export default function Navbar() {
               className="flex items-center space-x-4 group relative"
             >
               <div className="relative">
-                <div className="absolute -inset-3 bg-gradient-to-r from-blue-600 via-purple-600 to-teal-500 rounded-2xl blur-lg opacity-0 group-hover:opacity-20 transition-all duration-700"></div>
-                <div className="relative w-14 h-14 rounded-xl overflow-hidden border-2 border-transparent bg-gradient-to-br from-blue-500 via-purple-500 to-teal-500 p-0.5 group-hover:scale-105 transition-all duration-500">
+                <div className="absolute -inset-3  rounded-2xl blur-lg opacity-0 group-hover:opacity-20 transition-all duration-700"></div>
+                <div className="relative w-14 h-14 rounded-xl overflow-hidden border-2 border-transparent  p-0.5 group-hover:scale-105 transition-all duration-500">
                   <div className="w-full h-full bg-white rounded-lg flex items-center justify-center">
                     <Image
                       width={50}
                       height={50}
                       alt="logo"
-                      src="/images/logo.jpg"
+                      src="/images/newlogo.jpg"
                     />
                   </div>
                 </div>

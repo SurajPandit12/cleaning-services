@@ -132,10 +132,10 @@ const ServiceCard = ({ icon: Icon, title, description, details, index }) => {
               {/* Key Features */}
               {details.features && (
                 <div>
-                  <h5 className="text-lg font-semibold mb-3 flex items-center">
+                  {/* <h5 className="text-lg font-semibold mb-3 flex items-center">
                     <Star className="w-5 h-5 mr-2 text-yellow-300" />
                     Key Features:
-                  </h5>
+                  </h5> */}
                   <div className="flex flex-wrap gap-2">
                     {details.features.map((feature, idx) => (
                       <span
@@ -149,8 +149,6 @@ const ServiceCard = ({ icon: Icon, title, description, details, index }) => {
                 </div>
               )}
             </div>
-
-            {/* Guarantee section */}
             {details.guarantee && (
               <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg">
                 <div className="flex items-center mb-2">
@@ -207,23 +205,23 @@ const CleaningServices = () => {
         guarantee: "Maintaining professional standards daily",
       },
     },
-    {
-      icon: Bed,
-      title: "Airbnb / Short Stay Cleaning",
-      description:
-        "Quick turnaround cleaning for exceptional guest experiences.",
-      details: {
-        included: [
-          "Complete linen change and washing",
-          "Full property sanitization",
-          "Amenity restocking",
-          "Property staging for photos",
-          "Quality assurance check",
-        ],
-        features: ["Same-day", "Next-day", "Fast turnaround"],
-        guarantee: "Guest-ready guarantee every time",
-      },
-    },
+    // {
+    //   icon: Bed,
+    //   title: "Airbnb / Short Stay Cleaning",
+    //   description:
+    //     "Quick turnaround cleaning for exceptional guest experiences.",
+    //   details: {
+    //     included: [
+    //       "Complete linen change and washing",
+    //       "Full property sanitization",
+    //       "Amenity restocking",
+    //       "Property staging for photos",
+    //       "Quality assurance check",
+    //     ],
+    //     features: ["Same-day", "Next-day", "Fast turnaround"],
+    //     guarantee: "Guest-ready guarantee every time",
+    //   },
+    // },
     {
       icon: Sparkles,
       title: "End of Lease Cleaning",
@@ -240,28 +238,27 @@ const CleaningServices = () => {
         guarantee: "100% satisfaction guarantee or we return",
       },
     },
-    {
-      icon: Trash2,
-      title: "Rubbish Removal & Extras",
-      description:
-        "Additional services and waste management for complete maintenance.",
-      details: {
-        included: [
-          "Bin rotation and waste removal",
-          "Window washing service",
-          "Oven deep cleaning",
-          "Carpet spot cleaning",
-          "Custom cleaning requests",
-        ],
-        features: ["On-demand", "Custom jobs", "Add-on service"],
-        guarantee: "Flexible solutions for every need",
-      },
-    },
+    // {
+    //   icon: Trash2,
+    //   title: "Rubbish Removal & Extras",
+    //   description:
+    //     "Additional services and waste management for complete maintenance.",
+    //   details: {
+    //     included: [
+    //       "Bin rotation and waste removal",
+    //       "Window washing service",
+    //       "Oven deep cleaning",
+    //       "Carpet spot cleaning",
+    //       "Custom cleaning requests",
+    //     ],
+    //     features: ["On-demand", "Custom jobs", "Add-on service"],
+    //     guarantee: "Flexible solutions for every need",
+    //   },
+    // },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
-      {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-pink-600/20 rounded-full blur-3xl"></div>

@@ -48,9 +48,9 @@ export default function Footer() {
     { href: "#about", label: "About Us" },
     { href: "#services", label: "Our Services" },
     { href: "#whychooseus", label: "Whychoose Us" },
-    { href: "#", label: "Reviews" },
+    { href: "#", label: "Pricing" },
     { href: "#contact", label: "Contact" },
-    { href: "#careers", label: "Careers" },
+    // { href: "#careers", label: "Careers" },
   ];
 
   const socialLinks = [
@@ -90,22 +90,22 @@ export default function Footer() {
               <div className="flex items-center space-x-4 group">
                 <div className="relative">
                   <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-teal-500 rounded-xl blur-sm opacity-20 group-hover:opacity-30 transition-all duration-500"></div>
-                  <div className="relative bg-white p-3 rounded-xl shadow-lg border border-gray-100">
+                  <div className="relative rounded-xl shadow-lg">
                     <Image
-                      src="/images/logo.jpg"
+                      src="/images/newlogo.jpg"
                       alt="CleanLiving Logo"
                       height={45}
-                      width={60}
-                      className="transition-transform duration-500 group-hover:scale-110"
+                      width={70}
+                      className="transition-transform duration-500 group-hover:scale-110 rounded-2xl"
                     />
                   </div>
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-700 to-teal-600 bg-clip-text text-transparent font-poppins">
-                    CleanLiving
+                    Best Ever
                   </h3>
                   <p className="text-sm text-gray-600 font-medium font-dmsans">
-                    Professional Cleaning
+                    Cleaning Services & Hospitality
                   </p>
                 </div>
               </div>
@@ -178,9 +178,9 @@ export default function Footer() {
                   </div>
                   <div className="font-dmsans">
                     <p className="text-sm text-gray-600 leading-relaxed">
-                      8 prince street Clayton 3168,
+                      8 Prince Street Clayton,
                       <br />
-                      Melbourne, Australia
+                      Melbourne, 3168 Victoria, Australia
                     </p>
                   </div>
                 </div>
