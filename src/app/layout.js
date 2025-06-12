@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "./(frontend)/components/NavBar";
 import Footer from "./(frontend)/components/Footer";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -15,13 +14,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Top Cleaning services",
+  title: "Top Cleaning Services",
   description: "Professional cleaning just for you",
+  icons: {
+    icon: [
+      { url: "/images/logo.jpg", sizes: "32x32" },
+      { url: "/images/logo.jpg", sizes: "16x16" },
+    ],
+    shortcut: "/images/logo.jpg",
+    apple: "/images/logo.jpg",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/images/logo.jpg" />
+        <link rel="shortcut icon" href="/images/logo.jpg" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
