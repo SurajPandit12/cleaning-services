@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
-import { MapPin, Calendar, Phone, ChevronDown } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
@@ -318,8 +317,8 @@ const Hero = () => {
                 </h1>
 
                 <p className="text-xl md:text-2xl font-dmsans text-white mb-10 leading-relaxed font-medium drop-shadow-md max-w-2xl mx-auto lg:mx-0">
-                  Reliable, trained, and police-verified cleaning professionals
-                  serving apartments, offices, and short-stay propertieswith
+                  Reliable, trained, and secured cleaning professionals serving
+                  apartments, offices, and short-stay properties with
                   eco-friendly products and 100% satisfaction guarantee.
                 </p>
 
