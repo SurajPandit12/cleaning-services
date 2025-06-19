@@ -89,7 +89,6 @@ const ContactUs = () => {
       setIsSubmitted(true);
       console.log("✅ Form submitted successfully:", data);
 
-      // Reset form after 4 seconds
       setTimeout(() => {
         setIsSubmitted(false);
         setFormData({
@@ -150,7 +149,6 @@ const ContactUs = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Contact Information */}
             <div className="lg:col-span-1">
               <div className="bg-blue-50 rounded-xl p-6 h-full">
                 <h3 className="text-xl font-semibold text-gray-900 mb-6 font-montserrat">
