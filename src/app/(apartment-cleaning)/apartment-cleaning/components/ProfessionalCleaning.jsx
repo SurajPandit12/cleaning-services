@@ -69,19 +69,24 @@ export default function RegularClean() {
   return (
     <section className="container py-8 md:py-16 px-4">
       <div className="mb-6 md:mb-10">
-        <div className="mb-4 text-center">
+        {/* <div className="mb-4 text-center">
           <span className="inline-block bg-blue-100 text-blue-700 text-xs md:text-sm font-semibold px-3 md:px-4 py-2 rounded-full font-montserrat">
-            🔆 Professional Cleaning Services
+            Why Choose Regular Cleaning?
           </span>
-        </div>
+        </div> */}
         <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center font-poppins px-4">
-          What's Included in Every{" "}
-          <span className="text-blue-600">Regular Clean?</span>
+          Why Choose
+          <span className="text-[#2563EB]"> Regular Cleaning?</span>
         </h2>
 
-        <p className="text-gray-600 max-w-2xl text-center mx-auto mb-8 md:mb-12 text-base md:text-lg leading-relaxed font-dmsans px-4">
-          Our team brings all the supplies and follows safe, eco-friendly
-          practices to give you spotless results without the stress.
+        <p className="max-w-[1400px] text-[#4B5563] text-sm text-center mx-auto mb-8 md:mb-12  md:text-lg leading-relaxed font-dmsans px-4">
+          Keeping your home clean shouldn’t be a struggle. With
+          BestEverHospitality, enjoy consistent cleaning on your schedule.
+          Whether you're busy with work or just want peace of mind, our trained
+          cleaners take care of the mess so you don’t have to. <br></br>We offer
+          flexible plans — weekly, fortnightly, or monthly — and use
+          eco-friendly supplies to keep your home fresh, hygienic, and safe for
+          kids or pets.
         </p>
       </div>
 
@@ -95,7 +100,10 @@ export default function RegularClean() {
               </span>
             </div>
             <h2 className="text-xl md:text-3xl font-bold mb-4 font-poppins">
-              What's Included in Every Regular Clean?
+              What's Included in Every{" "}
+              <span className="text-[#2563EB] ">
+                Regular Clean?
+              </span>
             </h2>
 
             <p className="text-gray-600 max-w-2xl mb-6 text-base md:text-lg leading-relaxed font-dmsans">

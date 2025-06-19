@@ -69,19 +69,24 @@ export default function RegularClean() {
   return (
     <section className="container py-8 md:py-16 px-4">
       <div className="mb-6 md:mb-10">
-        <div className="mb-4 text-center">
+        {/* <div className="mb-4 text-center">
           <span className="inline-block bg-blue-100 text-blue-700 text-xs md:text-sm font-semibold px-3 md:px-4 py-2 rounded-full font-montserrat">
             🔆 Professional Cleaning Services
           </span>
-        </div>
+        </div> */}
         <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center font-poppins px-4">
-          What's Included in Every{" "}
-          <span className="text-blue-600">Regular Clean?</span>
+          Why Choose
+          <span className="text-blue-600">Office & Commercial Cleaning?</span>
         </h2>
 
-        <p className="text-gray-600 max-w-2xl text-center mx-auto mb-8 md:mb-12 text-base md:text-lg leading-relaxed font-dmsans px-4">
-          Our team brings all the supplies and follows safe, eco-friendly
-          practices to give you spotless results without the stress.
+        <p className="text-gray-600 max-w-[1200px] text-center  mx-auto mb-8 md:mb-12 text-sm md:text-lg leading-relaxed font-dmsans px-4">
+          Running a business is hard enough — let us handle the cleaning. At
+          BestEverHospitality, we offer tailored cleaning solutions for offices,
+          shops, clinics, showrooms, and other commercial spaces. Our
+          professional cleaners work around your hours to minimise disruption
+          and deliver a cleaner, safer environment for staff and clients alike.
+          <br></br>We use eco-safe products, bring all necessary tools, and
+          ensure consistent quality with every visit.
         </p>
       </div>
 
@@ -95,12 +100,15 @@ export default function RegularClean() {
               </span>
             </div>
             <h2 className="text-xl md:text-3xl font-bold mb-4 font-poppins">
-              What's Included in Every Regular Clean?
+              What’s Included in{" "}
+              <span className="text-[#2563EB]">
+                Office & Commercial Cleaning?
+              </span>
             </h2>
 
             <p className="text-gray-600 max-w-2xl mb-6 text-base md:text-lg leading-relaxed font-dmsans">
-              Our team brings all the supplies and follows safe, eco-friendly
-              practices to give you spotless results without the stress.
+              We use eco-safe products, bring all necessary tools, and ensure
+              consistent quality with every visit.
             </p>
           </div>
           <div className="hidden lg:flex flex-col items-start justify-start mb-8">
@@ -191,14 +199,14 @@ export default function RegularClean() {
                 <Home className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
               </span>
               <h3 className="font-semibold text-base md:text-lg font-poppins text-center">
-                Living Areas & Bedrooms
+                Workspaces
               </h3>
             </div>
             <ul className="list-disc list-inside text-gray-600 text-sm mt-3 space-y-2 text-left font-dmsans pl-4 md:pl-6">
-              <li>Dust all surfaces and furniture</li>
-              <li>Vacuum carpets and mop floors</li>
-              <li>Wipe light switches, skirtings & doors</li>
-              <li>Empty bins and replace liners</li>
+              <li>Dust desks, shelves & electronics</li>
+              <li>Wipe light switches & door handles</li>
+              <li>Empty bins & replace liners</li>
+              {/* <li>Empty bins and replace liners</li> */}
             </ul>
           </div>
           <div className="w-full md:w-1/2 px-2 md:px-4 mb-8 md:mb-0">
@@ -216,14 +224,14 @@ export default function RegularClean() {
                 <ChefHat className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
               </span>
               <h3 className="font-semibold text-base md:text-lg font-poppins text-center">
-                Kitchen
+                Common Areas
               </h3>
             </div>
             <ul className="list-disc list-inside text-gray-600 text-sm mt-3 space-y-2 text-left font-dmsans pl-4 md:pl-6">
-              <li>Clean benchtops & stove</li>
-              <li>Wipe appliance exteriors</li>
-              <li>Clean sink & polish taps</li>
-              <li>Mop floors and take out trash</li>
+              <li>Vacuum carpets & mop floors</li>
+              <li>Clean windows (interior) & glass partitions</li>
+              <li>Wipe down high-touch surfaces</li>
+              {/* <li>Mop floors and take out trash</li> */}
             </ul>
           </div>
 
@@ -243,14 +251,14 @@ export default function RegularClean() {
                   <Bath className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
                 </span>
                 <h3 className="font-semibold text-base md:text-lg font-poppins text-center">
-                  Bathroom
+                  Kitchen & Restrooms
                 </h3>
               </div>
               <div className="flex flex-col justify-center items-center">
                 <ul className="list-disc list-inside text-gray-600 text-sm mt-3 space-y-2 text-left font-dmsans">
-                  <li>Scrub toilet, sink, shower & tiles</li>
-                  <li>Wipe mirrors and taps</li>
-                  <li>Disinfect high-touch surface</li>
+                  <li>Clean benches & appliances</li>
+                  <li>Scrub toilets, sinks & taps</li>
+                  <li>Restock consumables (if supplied)</li>
                 </ul>
               </div>
             </div>

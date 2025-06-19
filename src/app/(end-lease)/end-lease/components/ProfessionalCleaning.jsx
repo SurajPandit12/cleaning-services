@@ -69,19 +69,24 @@ export default function RegularClean() {
   return (
     <section className="container py-8 md:py-16 px-4">
       <div className="mb-6 md:mb-10">
-        <div className="mb-4 text-center">
+        {/* <div className="mb-4 text-center">
           <span className="inline-block bg-blue-100 text-blue-700 text-xs md:text-sm font-semibold px-3 md:px-4 py-2 rounded-full font-montserrat">
             🔆 Professional Cleaning Services
           </span>
-        </div>
+        </div> */}
         <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center font-poppins px-4">
-          What's Included in Every{" "}
-          <span className="text-blue-600">Regular Clean?</span>
+          Why Choose
+          <span className="text-blue-600"> End of Lease Cleaning?</span>
         </h2>
 
-        <p className="text-gray-600 max-w-2xl text-center mx-auto mb-8 md:mb-12 text-base md:text-lg leading-relaxed font-dmsans px-4">
-          Our team brings all the supplies and follows safe, eco-friendly
-          practices to give you spotless results without the stress.
+        <p className="text-gray-600 max-w-[1200px] text-center mx-auto mb-8 md:mb-12 text-sm md:text-lg leading-relaxed font-dmsans px-4">
+          Moving is stressful — cleaning shouldn’t be. BestEverHospitality
+          provides full end-of-lease cleaning that meets real estate and
+          property manager standards. Whether you're a tenant vacating or a
+          landlord preparing for new renters, we ensure the space is spotless
+          and ready for inspection.<br></br>
+          With a focus on detail and guaranteed satisfaction, we help you secure
+          your full bond back with no hassle.
         </p>
       </div>
 
@@ -95,7 +100,8 @@ export default function RegularClean() {
               </span>
             </div>
             <h2 className="text-xl md:text-3xl font-bold mb-4 font-poppins">
-              What's Included in Every Regular Clean?
+              What’s Included in{" "}
+              <span className="text-[#2563EB]">Every Regular Clean?</span>
             </h2>
 
             <p className="text-gray-600 max-w-2xl mb-6 text-base md:text-lg leading-relaxed font-dmsans">
