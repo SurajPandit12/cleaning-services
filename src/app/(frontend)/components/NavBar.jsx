@@ -1,6 +1,14 @@
 "use client";
 
-import { Mail, Menu, Phone, X, Sparkles, Star } from "lucide-react";
+import {
+  Mail,
+  Menu,
+  Phone,
+  X,
+  Sparkles,
+  Star,
+  ChevronDown,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -8,6 +16,9 @@ import { useEffect, useState } from "react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesDropdownOpen, setMobileServicesDropdownOpen] =
+    useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,10 +35,16 @@ export default function Navbar() {
   const navLinks = [
     { href: "#home", label: "Home" },
     { href: "#about", label: "About" },
-    { href: "#services", label: "Services" },
+    { href: "#services", label: "Services", hasDropdown: true },
     { href: "#whychooseus", label: "Why Choose Us" },
     { href: "#testimonials", label: "Pricing" },
     { href: "#contact", label: "Contact" },
+  ];
+
+  const serviceItems = [
+    { href: "/apartment-cleaning", label: "Regular Apartment Cleaning" },
+    { href: "/office-commercial", label: "Office and Commercial Cleaning" },
+    { href: "/end-lease", label: "End of Lease Cleaning" },
   ];
 
   return (
@@ -92,17 +109,54 @@ export default function Navbar() {
 
             <div className="hidden lg:flex items-center font-dmsans space-x-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="relative px-5 py-3 text-gray-700 hover:text-gray-900 font-medium text-sm transition-all group"
-                >
-                  <span className="relative z-10">
-                    {link.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-500 group-hover:w-full"></span>
-                  </span>
-                  <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0 group-hover:from-blue-500/40 group-hover:to-blue-500/40 transition-all duration-500"></span>
-                </Link>
+                <div key={link.href} className="relative">
+                  {link.hasDropdown ? (
+                    <div
+                      className="relative"
+                      onMouseEnter={() => setServicesDropdownOpen(true)}
+                      onMouseLeave={() => setServicesDropdownOpen(false)}
+                    >
+                      <Link
+                        href={link.href}
+                        className="relative px-5 py-3 text-gray-700 hover:text-gray-900 font-medium text-sm transition-all group flex items-center space-x-1"
+                      >
+                        <span className="relative z-10">
+                          {link.label}
+                          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-500 group-hover:w-full"></span>
+                        </span>
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 ${servicesDropdownOpen ? "rotate-180" : ""}`}
+                        />
+                        <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0 group-hover:from-blue-500/40 group-hover:to-blue-500/40 transition-all duration-500"></span>
+                      </Link>
+
+                      {servicesDropdownOpen && (
+                        <div className="absolute top-full left-0 w-64 bg-white shadow-xl rounded-lg border border-gray-100  z-50">
+                          {serviceItems.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 font-medium text-sm"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="relative px-5 py-3 text-gray-700 hover:text-gray-900 font-medium text-sm transition-all group"
+                    >
+                      <span className="relative z-10">
+                        {link.label}
+                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-500 group-hover:w-full"></span>
+                      </span>
+                      <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0 group-hover:from-blue-500/40 group-hover:to-blue-500/40 transition-all duration-500"></span>
+                    </Link>
+                  )}
+                </div>
               ))}
             </div>
 
@@ -134,14 +188,48 @@ export default function Navbar() {
           <div className="lg:hidden bg-white shadow-xl border-t border-gray-100">
             <div className="max-w-7xl mx-auto px-4 py-4 space-y-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors duration-200"
-                >
-                  {link.label}
-                </Link>
+                <div key={link.href}>
+                  {link.hasDropdown ? (
+                    <div>
+                      <button
+                        onClick={() =>
+                          setMobileServicesDropdownOpen(
+                            !mobileServicesDropdownOpen
+                          )
+                        }
+                        className="flex items-center justify-between w-full px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors duration-200"
+                      >
+                        <span>{link.label}</span>
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 ${mobileServicesDropdownOpen ? "rotate-180" : ""}`}
+                        />
+                      </button>
+
+                      {mobileServicesDropdownOpen && (
+                        <div className="ml-4 mt-1 space-y-1">
+                          {serviceItems.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              onClick={() => setIsOpen(false)}
+                              className="block px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-blue-600 rounded-md text-sm transition-colors duration-200"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </div>
               ))}
 
               <div className="pt-4 border-t border-gray-100 mt-4">
@@ -161,9 +249,7 @@ export default function Navbar() {
                   </div>
                   <div className="flex items-center space-x-2 text-gray-600">
                     <Mail className="w-4 h-4 text-purple-500" />
-                    <span className="font-medium">
-                      asok123123@gmail.com
-                    </span>
+                    <span className="font-medium">asok123123@gmail.com</span>
                   </div>
                 </div>
               </div>

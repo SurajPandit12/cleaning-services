@@ -16,9 +16,12 @@ const Hero = () => {
                 </p>
               </div>
               <div className="flex justify-center lg:justify-start">
-                <button className="text-white font-poppins font-[500] text-base md:text-lg leading-6 md:leading-7 border border-white px-4 md:px-6 py-2 md:py-3 rounded-md mt-2 hover:bg-white hover:text-gray-900 transition-colors duration-300">
+                <Link
+                  href="#contact"
+                  className="text-white font-poppins font-[500] text-base md:text-lg leading-6 md:leading-7 border border-white px-4 md:px-6 py-2 md:py-3 rounded-md mt-2 hover:bg-white hover:text-gray-900 transition-colors duration-300"
+                >
                   Get free quote
-                </button>
+                </Link>
               </div>
             </div>
             <div className="hidden lg:block"></div>
