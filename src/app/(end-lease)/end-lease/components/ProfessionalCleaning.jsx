@@ -179,10 +179,10 @@ export default function RegularClean() {
           <div className="w-full md:w-1/2 px-2 md:px-4 mb-8 md:mb-0">
             <div className="mb-4">
               <Image
-                src="/images/ellipse1.png"
+                src="/images/Ellipse1.png"
                 width={600}
                 height={100}
-                alt="ellipse"
+                alt="Ellipse"
                 className="mx-auto max-w-full h-auto"
               />
             </div>
@@ -204,10 +204,10 @@ export default function RegularClean() {
           <div className="w-full md:w-1/2 px-2 md:px-4 mb-8 md:mb-0">
             <div className="mb-4">
               <Image
-                src="/images/ellipse2.png"
+                src="/images/Ellipse2.png"
                 width={600}
                 height={100}
-                alt="ellipse"
+                alt="Ellipse"
                 className="mx-auto max-w-full h-auto"
               />
             </div>
@@ -231,10 +231,10 @@ export default function RegularClean() {
             <div className="px-2 md:px-4">
               <div className="mb-4">
                 <Image
-                  src="/images/ellipse3.png"
+                  src="/images/Ellipse3.png"
                   width={400}
                   height={100}
-                  alt="ellipse"
+                  alt="Ellipse"
                   className="mx-auto max-w-full h-auto"
                 />
               </div>
