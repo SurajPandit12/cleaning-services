@@ -86,10 +86,10 @@ export default function Navbar() {
                 <div className="relative w-14 h-14 rounded-xl overflow-hidden border-2 border-transparent  p-0.5 group-hover:scale-105 transition-all duration-500">
                   <div className="w-full h-full bg-white rounded-lg flex items-center justify-center">
                     <Image
-                      width={50}
+                      width={80}
                       height={50}
                       alt="logo"
-                      src="/images/newlogo.jpg"
+                      src="/images/best.png"
                     />
                   </div>
                 </div>
