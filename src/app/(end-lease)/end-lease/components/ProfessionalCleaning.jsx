@@ -79,7 +79,7 @@ export default function RegularClean() {
           <span className="text-blue-600"> End of Lease Cleaning?</span>
         </h2>
 
-        <p className="text-gray-600 max-w-[1200px] text-center mx-auto mb-8 md:mb-12 text-sm md:text-lg leading-relaxed font-dmsans px-4">
+        <p className="text-gray-600 max-w-[1200px] text-center mx-auto mb-8 md:mb-12 text-sm leading-relaxed font-dmsans px-4">
           Moving is stressful — cleaning shouldn’t be. BestEverHospitality
           provides full end-of-lease cleaning that meets real estate and
           property manager standards. Whether you're a tenant vacating or a

@@ -68,18 +68,13 @@ export default function RegularClean() {
 
   return (
     <section className="container py-8 md:py-16 px-4">
-      <div className="mb-6 md:mb-10">
-        {/* <div className="mb-4 text-center">
-          <span className="inline-block bg-blue-100 text-blue-700 text-xs md:text-sm font-semibold px-3 md:px-4 py-2 rounded-full font-montserrat">
-            Why Choose Regular Cleaning?
-          </span>
-        </div> */}
+      <div className="mb-6 md:mb-10 relative z-10">
         <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center font-poppins px-4">
           Why Choose
           <span className="text-[#2563EB]"> Regular Cleaning?</span>
         </h2>
 
-        <p className="max-w-[1400px] text-[#4B5563] text-sm text-center mx-auto mb-8 md:mb-12  md:text-lg leading-relaxed font-dmsans px-4">
+        <p className="max-w-[1400px] text-[#4B5563] text-sm text-center mx-auto mb-8 md:mb-12 leading-relaxed font-dmsans px-4">
           Keeping your home clean shouldn’t be a struggle. With
           BestEverHospitality, enjoy consistent cleaning on your schedule.
           Whether you're busy with work or just want peace of mind, our trained
@@ -90,9 +85,10 @@ export default function RegularClean() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 justify-center items-start gap-8 lg:gap-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 justify-center items-start gap-8 lg:gap-16 relative">
         {/* Image Section with Animation */}
-        <div className="w-full flex flex-col justify-center items-center order-2 lg:order-1">
+        <div className="w-full flex flex-col justify-center items-center order-2 lg:border-1 relative">
+          <div className="absolute bottom-[-200px] -left-[250px] h-0 w-0 lg:min-h-[500px] lg:min-w-[500px] z-[-1] hidden xl:block bg-[radial-gradient(circle,_rgba(99,_73,_229,_0.4)_0%,_rgba(255,_255,_255,_0.2)_70%,_rgba(255,_255,_255,_0.2)_100%)] rounded-full"></div>
           <div className="flex flex-col items-start justify-start mb-6 lg:mb-0 lg:hidden">
             <div className="mb-4">
               <span className="inline-block bg-blue-100 text-blue-700 text-xs md:text-sm font-semibold px-3 md:px-4 py-2 rounded-full font-montserrat">
@@ -101,9 +97,7 @@ export default function RegularClean() {
             </div>
             <h2 className="text-xl md:text-3xl font-bold mb-4 font-poppins">
               What's Included in Every{" "}
-              <span className="text-[#2563EB] ">
-                Regular Clean?
-              </span>
+              <span className="text-[#2563EB] ">Regular Clean?</span>
             </h2>
 
             <p className="text-gray-600 max-w-2xl mb-6 text-base md:text-lg leading-relaxed font-dmsans">

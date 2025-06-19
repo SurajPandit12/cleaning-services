@@ -79,7 +79,7 @@ export default function RegularClean() {
           <span className="text-blue-600">Office & Commercial Cleaning?</span>
         </h2>
 
-        <p className="text-gray-600 max-w-[1200px] text-center  mx-auto mb-8 md:mb-12 text-sm md:text-lg leading-relaxed font-dmsans px-4">
+        <p className="text-gray-600 max-w-[1290px] text-center  mx-auto mb-8 md:mb-12 text-base leading-relaxed font-dmsans px-4">
           Running a business is hard enough — let us handle the cleaning. At
           BestEverHospitality, we offer tailored cleaning solutions for offices,
           shops, clinics, showrooms, and other commercial spaces. Our
