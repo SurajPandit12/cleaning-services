@@ -22,7 +22,7 @@ export const metadata = {
       "Top Cleaning Services | Home,Apartment, Office & Commercial Cleaning Near You",
     description:
       "Discover professional cleaning services tailored for homes, offices, and commercial spaces. From deep cleaning to Airbnb and end of lease cleans—trusted, affordable, and available near you in Melbourne, Sydney, Brisbane, and more.",
-    images: "/",
+    images: "/images/best.png",
     url: "/",
   },
 };

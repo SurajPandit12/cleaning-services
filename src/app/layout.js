@@ -18,7 +18,7 @@ export const metadata = {
   description: "Professional cleaning just for you",
   icons: {
     icon: [
-      { url: "/images/logo.jpg", sizes: "32x32" },
+      { url: "/images/logo.jpg", sizes: "64x64" },
       { url: "/images/logo.jpg", sizes: "16x16" },
     ],
     shortcut: "/images/logo.jpg",
