@@ -7,26 +7,32 @@ import {
   Clock,
   PhoneCall,
   Star,
+  Sparkle,
+  CalendarCheck,
+  KeyRound,
 } from "lucide-react";
 import Link from "next/link";
 
 const services = [
   {
-    icon: SprayCan,
+    icon: SprayCan, // Represents deep cleaning shine (better than SprayCan)
     title: "Deep Cleaning",
-    description: "Thorough cleaning to keep your space spotless.",
+    description:
+      "Intensive scrubbing of hidden grime, sanitizing kitchens, bathrooms & high-touch areas.",
     color: "from-blue-400 to-blue-600",
   },
   {
-    icon: Clock,
+    icon: CalendarCheck, // Emphasizes scheduled bookings (better than Clock)
     title: "Scheduled Cleaning",
-    description: "Flexible plans for weekly or monthly cleaning.",
+    description:
+      "Weekly, fortnightly, or monthly plans tailored to your needs.",
     color: "from-green-400 to-green-600",
   },
   {
-    icon: ShieldCheck,
-    title: "Sanitization",
-    description: "Hospital-grade sanitization for safety and hygiene.",
+    icon: KeyRound, // Symbolizes lease handback (better than ShieldCheck)
+    title: "End of Lease",
+    description:
+      "Bond-back guaranteed cleaning compliant with REIV/Australian standards.",
     color: "from-purple-400 to-purple-600",
   },
 ];

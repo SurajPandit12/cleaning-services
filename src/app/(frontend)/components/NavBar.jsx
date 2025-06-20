@@ -81,15 +81,16 @@ export default function Navbar() {
               href="/"
               className="flex items-center space-x-4 group relative"
             >
-              <div className="relative">
-                <div className="absolute -inset-3  rounded-2xl blur-lg opacity-0 group-hover:opacity-20 transition-all duration-700"></div>
-                <div className="relative w-14 h-14 rounded-xl overflow-hidden border-2 border-transparent  p-0.5 group-hover:scale-105 transition-all duration-500">
-                  <div className="w-full h-full bg-white rounded-lg flex items-center justify-center">
+              <div className="relative h-full">
+                <div className="absolute -inset-3 rounded-2xl blur-lg opacity-0 group-hover:opacity-20 transition-all duration-700"></div>
+                <div className="rounded-xl overflow-hidden border-2 border-transparent group-hover:scale-105 transition-all duration-500 h-full">
+                  <div className="w-full h-full rounded-lg flex items-center justify-center">
                     <Image
-                      width={80}
-                      height={50}
+                      width={480}
+                      height={100}
                       alt="logo"
                       src="/images/best.png"
+                      className="object-contain w-full h-full max-w-full max-h-full bg-blend-screen"
                     />
                   </div>
                 </div>
@@ -97,14 +98,14 @@ export default function Navbar() {
                   <Star className="w-2 h-2 text-white" />
                 </div>
               </div>
-              <div className="flex flex-col">
+              {/* <div className="flex flex-col">
                 <span className="text-3xl font-black bg-gradient-to-r from-gray-800 via-blue-600 to-purple-600 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-500">
                   Best Ever
                 </span>
                 <span className="text-xs font-semibold text-gray-500 hidden sm:block group-hover:text-blue-500 transition-colors duration-300">
                   Cleaning Services & Hospitality
                 </span>
-              </div>
+              </div> */}
             </Link>
 
             <div className="hidden lg:flex items-center font-dmsans space-x-1">

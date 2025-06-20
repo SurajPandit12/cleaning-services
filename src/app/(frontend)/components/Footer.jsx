@@ -38,8 +38,8 @@ export default function Footer() {
   const services = [
     "Apartment Deep Cleaning",
     "Regular House Cleaning",
-    "Move-in/Move-out Cleaning",
-    "Post-Construction Cleanup",
+    "Office and Commercial Cleaning",
+    "End of Lease Cleaning",
     "Office Cleaning",
     "Window Cleaning",
   ];
@@ -66,18 +66,18 @@ export default function Footer() {
       color: "hover:text-pink-600",
       bg: "hover:bg-pink-50",
     },
-    {
-      icon: Twitter,
-      href: "#",
-      color: "hover:text-blue-400",
-      bg: "hover:bg-blue-50",
-    },
-    {
-      icon: Linkedin,
-      href: "#",
-      color: "hover:text-blue-700",
-      bg: "hover:bg-blue-50",
-    },
+    // {
+    //   icon: Twitter,
+    //   href: "#",
+    //   color: "hover:text-blue-400",
+    //   bg: "hover:bg-blue-50",
+    // },
+    // {
+    //   icon: Linkedin,
+    //   href: "#",
+    //   color: "hover:text-blue-700",
+    //   bg: "hover:bg-blue-50",
+    // },
   ];
 
   return (
@@ -87,27 +87,36 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto pt-16 pb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             <div className="lg:col-span-1 space-y-6">
-              <div className="flex items-center space-x-4 group">
-                <div className="relative">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-teal-500 rounded-xl blur-sm opacity-20 group-hover:opacity-30 transition-all duration-500"></div>
-                  <div className="relative rounded-xl shadow-lg">
-                    <Image
-                      src="/images/newlogo.jpg"
-                      alt="CleanLiving Logo"
-                      height={45}
-                      width={70}
-                      className="transition-transform duration-500 group-hover:scale-110 rounded-2xl"
-                    />
+              <div className="flex  space-x-4 group">
+                <div className="relative ">
+                  {" "}
+              
+                  <div className="absolute -inset-3 rounded-2xl blur-lg opacity-0 group-hover:opacity-20 transition-all duration-700 "></div>
+                  {/* Image container */}
+                  <div className="rounded-xl overflow-hidden border-2 border-transparent group-hover:scale-105 transition-all duration-500 h-full">
+                    <div className="w-full h-full bg-white/10 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                      <Image
+                        src="/images/best.png"
+                        alt="Best Ever Logo"
+                        width={380}
+                        height={80}
+                        className="object-contain w-full h-full max-w-full max-h-full mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity rounded-xl"
+                      />
+                    </div>
+                  </div>
+                  {/* Star badge - optional */}
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                    <Star className="w-2 h-2 text-white" />
                   </div>
                 </div>
-                <div>
+                {/* <div>
                   <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-700 to-teal-600 bg-clip-text text-transparent font-poppins">
                     Best Ever
                   </h3>
                   <p className="text-sm text-gray-600 font-medium font-dmsans">
                     Cleaning Services & Hospitality
                   </p>
-                </div>
+                </div> */}
               </div>
 
               <p className="text-gray-600 leading-relaxed font-dmsans">
@@ -212,7 +221,7 @@ export default function Footer() {
                     </Link>
                   </div>
                 </div>
-                <div className="flex items-start space-x-3 group">
+                {/* <div className="flex items-start space-x-3 group">
                   <div className="p-2 bg-purple-100 rounded-lg group-hover:bg-purple-200 transition-colors duration-300">
                     <Clock className="w-4 h-4 text-purple-600" />
                   </div>
@@ -223,7 +232,7 @@ export default function Footer() {
                       Sunday: 10:00 AM - 6:00 PM
                     </p>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="pt-2">
                 <h5 className="text-sm font-semibold text-gray-700 mb-3 font-dmsans">

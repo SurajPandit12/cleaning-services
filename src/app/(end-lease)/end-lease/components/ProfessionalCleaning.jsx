@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Bath, ChefHat, ChevronLeft, ChevronRight, Home } from "lucide-react";
 import Image from "next/image";
 
-const images = ["/images/a.png", "/images/b.png", "/images/c.png"]; // Place these in /public
+const images = ["/images/a.png", "/images/g.png", "/images/h.png"]; // Place these in /public
 
 export default function RegularClean() {
   const [current, setCurrent] = useState(0);
@@ -197,14 +197,14 @@ export default function RegularClean() {
                 <Home className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
               </span>
               <h3 className="font-semibold text-base md:text-lg font-poppins text-center">
-                Living Areas & Bedrooms
+                Whole Property
               </h3>
             </div>
             <ul className="list-disc list-inside text-gray-600 text-sm mt-3 space-y-2 text-left font-dmsans pl-4 md:pl-6">
-              <li>Dust all surfaces and furniture</li>
-              <li>Vacuum carpets and mop floors</li>
+              <li>General deep cleaning throughout</li>
+              <li>Cobweb and mark removal</li>
               <li>Wipe light switches, skirtings & doors</li>
-              <li>Empty bins and replace liners</li>
+              {/* <li>Empty bins and replace liners</li> */}
             </ul>
           </div>
           <div className="w-full md:w-1/2 px-2 md:px-4 mb-8 md:mb-0">
@@ -226,10 +226,10 @@ export default function RegularClean() {
               </h3>
             </div>
             <ul className="list-disc list-inside text-gray-600 text-sm mt-3 space-y-2 text-left font-dmsans pl-4 md:pl-6">
-              <li>Clean benchtops & stove</li>
-              <li>Wipe appliance exteriors</li>
-              <li>Clean sink & polish taps</li>
-              <li>Mop floors and take out trash</li>
+              <li>Deep clean oven, stove and rangehood</li>
+              <li>Clean all cupboards inside & out</li>
+              <li>Scrub sink and polish tapware</li>
+              {/* <li>Mop floors and take out trash</li> */}
             </ul>
           </div>
 
@@ -249,14 +249,14 @@ export default function RegularClean() {
                   <Bath className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
                 </span>
                 <h3 className="font-semibold text-base md:text-lg font-poppins text-center">
-                  Bathroom
+                  Bathroom & Laundry
                 </h3>
               </div>
               <div className="flex flex-col justify-center items-center">
                 <ul className="list-disc list-inside text-gray-600 text-sm mt-3 space-y-2 text-left font-dmsans">
-                  <li>Scrub toilet, sink, shower & tiles</li>
-                  <li>Wipe mirrors and taps</li>
-                  <li>Disinfect high-touch surface</li>
+                  <li>Clean showers, toilets, tiles and mirrors</li>
+                  <li>Remove mould and hard water stains</li>
+                  <li>Clean laundry sinks and floors</li>
                 </ul>
               </div>
             </div>

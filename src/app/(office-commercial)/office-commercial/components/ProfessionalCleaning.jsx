@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Bath, ChefHat, ChevronLeft, ChevronRight, Home } from "lucide-react";
 import Image from "next/image";
 
-const images = ["/images/a.png", "/images/b.png", "/images/c.png"]; // Place these in /public
+const images = ["/images/d.png", "/images/e.png", "/images/f.png"]; // Place these in /public
 
 export default function RegularClean() {
   const [current, setCurrent] = useState(0);
@@ -76,7 +76,7 @@ export default function RegularClean() {
         </div> */}
         <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center font-poppins px-4">
           Why Choose
-          <span className="text-blue-600">Office & Commercial Cleaning?</span>
+          <span className="text-blue-600"> Office & Commercial Cleaning?</span>
         </h2>
 
         <p className="text-gray-600 max-w-[1290px] text-center  mx-auto mb-8 md:mb-12 text-base leading-relaxed font-dmsans px-4">

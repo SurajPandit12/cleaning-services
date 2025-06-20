@@ -61,7 +61,7 @@ const ServiceCard = ({
               <p className="text-gray-600 text-base leading-relaxed mb-6 group-hover:text-gray-700 transition-colors duration-300">
                 {description}
               </p>
-              <div className="flex items-center gap-2 text-base font-medium text-blue-600 opacity-60 group-hover:opacity-100 transition-all duration-300">
+              <div className="flex items-center gap-2 text-lg font-dmsans font-medium text-blue-600 opacity-60 group-hover:opacity-100 transition-all duration-300">
                 <span>Learn more</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </div>
